@@ -45,4 +45,7 @@ class LoginController extends Controller{
         return redirect('login');
     }
     //new function 
+    public function getData(){
+        
+    }
 }
