@@ -13,6 +13,7 @@
 	<meta property="og:description" content="Dompet : Payment Admin Template">
 	<meta property="og:image" content="https://dompet.dexignlab.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	
 	<!-- PAGE TITLE HERE -->
 	<title>{{ (!empty($page_title))?$page_title:'' }}</title>
@@ -93,5 +94,12 @@
 			toastr.warning("{{ session('warning') }}");
 	@endif
   </script>
+  <script type="text/javascript">
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+	</script>
 </body>
 </html>
