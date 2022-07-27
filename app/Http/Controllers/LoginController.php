@@ -21,9 +21,6 @@ class LoginController extends Controller{
     public function custom_login(Request $request){
         try{
             if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
-                // $user = Auth::user();
-                // dd($user);
-                // exit();
                 if(Auth::user()->role->name=='admin'){
                     return redirect('/');
                 }else{
@@ -37,7 +34,7 @@ class LoginController extends Controller{
                 return Redirect::back();
             }
         } catch(\Exception $e){
-            Session::flash('error', 'Oh Someting went wrong in server!');
+            Session::flash('error', 'Oh Someting went wrong in server! '.$e->getMessage());
             return Redirect::back();
         }
     }
