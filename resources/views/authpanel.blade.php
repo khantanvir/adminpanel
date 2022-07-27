@@ -92,6 +92,6 @@
 	}
 			toastr.warning("{{ session('warning') }}");
 	@endif
-  </script>
+  </script> 
 </body>
 </html>
