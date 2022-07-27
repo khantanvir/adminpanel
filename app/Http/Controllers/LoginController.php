@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Redirect;
+use App\Http\Requests\Login\LoginRequest;
 
 class LoginController extends Controller{
     public function admin_login(){
@@ -18,7 +19,7 @@ class LoginController extends Controller{
         return view('authpanel/forgotpassword',$data);
     }
     //login function
-    public function custom_login(Request $request){
+    public function custom_login(LoginRequest $request){
         try{
             if (Auth::attempt(['email' => $request->input('email'), 'password' => $request->input('password')])){
                 if(Auth::user()->role->name=='admin'){
