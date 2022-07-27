@@ -44,5 +44,5 @@ class LoginController extends Controller{
         Session::flash('success', 'Logout Successfully!');
         return redirect('login');
     }
-    //new function
+    //new function 
 }
