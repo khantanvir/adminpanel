@@ -46,6 +46,6 @@ class LoginController extends Controller{
     }
     //new function 
     public function getData(){
-        
+        echo "Hello world";
     }
 }
