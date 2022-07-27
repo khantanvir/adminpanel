@@ -45,7 +45,7 @@ class LoginController extends Controller{
         return redirect('login');
     }
     //new function 
-    public function getData(){
-        echo "Hello world";
+    public function login_check(){
+        echo "Data find out with in a second";
     }
 }
