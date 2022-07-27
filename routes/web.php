@@ -27,3 +27,5 @@ Route::get('/forgot-password', [App\Http\Controllers\LoginController::class, 'fo
 
 Route::post('/admin-login', [App\Http\Controllers\LoginController::class, 'custom_login']);
 Route::get('/sign-out', [App\Http\Controllers\LoginController::class, 'sign_out']);
+
+Route::get('/all-role', [App\Http\Controllers\DashboardController::class, 'all_role']);

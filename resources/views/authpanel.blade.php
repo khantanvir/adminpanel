@@ -94,8 +94,6 @@
 			toastr.warning("{{ session('warning') }}");
 	@endif
   </script> 
-=======
-  </script>
   <script type="text/javascript">
 	$.ajaxSetup({
 		headers: {
