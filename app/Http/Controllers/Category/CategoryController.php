@@ -6,7 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller{
-    public function add_categoty(){
+    public function index(){
+        
+    }
+    public function add_category(){
         $data['page_title'] = 'Category | Crate Category';
         $data['categories'] = true;
         $data['create_category'] = true;
