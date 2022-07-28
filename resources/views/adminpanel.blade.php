@@ -294,6 +294,19 @@
                             <li class="{{ (!empty($all_admin_user) && $all_admin_user==true)?'mm-active':'' }}"><a class="{{ (!empty($all_admin_user) && $all_admin_user==true)?'mm-active':'' }}" href="{{ URL::to('all-admin-user') }}">Admin Users</a></li>
                         </ul>
                     </li>
+
+					<!--category list -->
+					<li class="{{ (!empty($categories) && $categories==true)?'mm-active':'' }}"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-025-users"></i>
+							<span class="nav-text">Categories</span>
+						</a>
+                        <ul aria-expanded="false" class="{{ (!empty($categories) && $categories==true)?'mm-collapse mm-show':'' }}">
+                            <li class="{{ (!empty($create_category) && $create_category==true)?'mm-active':'' }}"><a class="{{ (!empty($create_category) && $create_category==true)?'mm-active':'' }}" href="{{ URL::to('create-category') }}">Create Category</a></li>
+							<li class="{{ (!empty($all_category) && $all_category==true)?'mm-active':'' }}"><a class="{{ (!empty($all_category) && $all_category==true)?'mm-active':'' }}" href="{{ URL::to('all-category') }}">All Category</a></li>
+                            <li class="{{ (!empty($create_subcategory) && $create_subcategory==true)?'mm-active':'' }}"><a class="{{ (!empty($create_subcategory) && $create_subcategory==true)?'mm-active':'' }}" href="{{ URL::to('create-subcategory') }}">Create Subcategory</a></li>
+							<li class="{{ (!empty($all_subcategory) && $all_subcategory==true)?'mm-active':'' }}"><a class="{{ (!empty($all_subcategory) && $all_subcategory==true)?'mm-active':'' }}" href="{{ URL::to('all-subcategory') }}">All Subcategory</a></li>
+                        </ul>
+                    </li>
                 </ul>
 			</div>
         </div>
