@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Facades\Session;
+use App\Helper\ImageHelper;
 
 class DashboardController extends Controller{
+    use ImageHelper;
     public function index(){
         $data['page_title'] = 'Admin | Dashboard';
         return view('home/index');

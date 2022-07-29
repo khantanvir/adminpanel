@@ -265,38 +265,38 @@
 			chartBar1.render();
 	}
 
-	var polarChart = function(){
-		 var ctx = document.getElementById("polarChart").getContext('2d');
-			Chart.defaults.global.legend.display = false;
-			var myChart = new Chart(ctx, {
-				type: 'polarArea',
-				data: {
-					labels: ["Mon", "Tue", "Wed", "Thu"],
-					datasets: [{
-						backgroundColor: [
-							"#496ecc",
-							"#68e365",
-							"#ffa755",
-							"#c8c8c8"
-						],
-						data: [40, 35, 30, 20]
-					}]
-				},
-				options: {
-					maintainAspectRatio: false,
-					scale: {
-						scaleShowLine:false,
-						display:false,
-						 pointLabels:{
-							fontSize: 0       
-						 },
-					},
-					tooltips:{
-						enabled:false,
-					}
-				}
-			});
-	}	
+	// var polarChart = function(){
+	// 	 var ctx = document.getElementById("polarChart").getContext('2d');
+	// 		Chart.defaults.global.legend.display = false;
+	// 		var myChart = new Chart(ctx, {
+	// 			type: 'polarArea',
+	// 			data: {
+	// 				labels: ["Mon", "Tue", "Wed", "Thu"],
+	// 				datasets: [{
+	// 					backgroundColor: [
+	// 						"#496ecc",
+	// 						"#68e365",
+	// 						"#ffa755",
+	// 						"#c8c8c8"
+	// 					],
+	// 					data: [40, 35, 30, 20]
+	// 				}]
+	// 			},
+	// 			options: {
+	// 				maintainAspectRatio: false,
+	// 				scale: {
+	// 					scaleShowLine:false,
+	// 					display:false,
+	// 					 pointLabels:{
+	// 						fontSize: 0       
+	// 					 },
+	// 				},
+	// 				tooltips:{
+	// 					enabled:false,
+	// 				}
+	// 			}
+	// 		});
+	// }	
 	
 	var handleCard = function(){
 		
@@ -307,6 +307,7 @@
 		var rotation      = 0;
 		// Events
 		reloadButton.addEventListener('click', function() { reloadClick() });
+		
 		// Functions
 		function reloadClick() {
 		  reloadEnabled = false;
@@ -362,7 +363,7 @@
 				
 				chartBar();
 				chartBar2();
-				polarChart();
+				//polarChart();
 				handleCard();
 			},
 			
