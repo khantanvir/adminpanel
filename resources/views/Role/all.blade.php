@@ -22,7 +22,7 @@
                             <tbody>
                                 
                                 @forelse($roles as $row)
-                                <tr>
+                                <tr class="{{ (!empty(Session::get('role_id')) && Session::get('role_id')==$row->id)?'table-primary':'' }}">
                                     <td><strong>{{ $row->id }}</strong></td>
                                     <td>{{ $row->name }}	</td>
                                     <td>{{ $row->created_at }}</td>
@@ -36,9 +36,9 @@
                                     <td>
                                         <div class="d-flex">
                                             @if($row->status==0)
-                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Activate this Role?')) location.href='{{ URL::to('role/activate/'.$row->id) }}'; return false;" title="Deactivate" href="#" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fas fa-duotone fa-toggle-off"></i></a>
+                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Deactivate this Role?')) location.href='{{ URL::to('role/deactivate/'.$row->id) }}'; return false;" title="Deactivate" href="#" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fas fa-duotone fa-toggle-off"></i></a>
                                             @else
-                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Deactivate this Role?')) location.href='{{ URL::to('role/deactivate/'.$row->id) }}'; return false;" title="Activate" href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fas fa-toggle-on"></i></a>
+                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Activate this Role?')) location.href='{{ URL::to('role/activate/'.$row->id) }}'; return false;" title="Activate" href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fas fa-toggle-on"></i></a>
                                             @endif
                                         </div>
                                     </td>

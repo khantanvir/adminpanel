@@ -13,9 +13,10 @@
 	<meta property="og:description" content="Dompet : Payment Admin Template">
 	<meta property="og:image" content="https://dompet.dexignlab.com/xhtml/social-image.png">
 	<meta name="format-detection" content="telephone=no">
+	<meta name="csrf-token" content="{{ csrf_token() }}" />
 	
 	<!-- PAGE TITLE HERE -->
-	<title>Dompet : Payment Admin Template</title>
+	<title>{{ (!empty($page_title))?$page_title:'' }}</title>
 	
 	<!-- FAVICONS ICON -->
 	<link rel="shortcut icon" type="image/png" href="{{ URL::to('public/backend/images/favicon.png') }}">
@@ -340,6 +341,74 @@
 	<script src="{{ URL::to('public/backend/js/dlabnav-init.js ') }}"></script>
 	<script src="{{ URL::to('public/backend/js/demo.js ') }}"></script>
     <!--<script src="{{ URL::to('public/backend/js/styleSwitcher.js ') }}"></script>-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+	<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script>
+		@if(Session::has('success'))
+		toastr.options =
+		{
+			"closeButton" : true,
+			"progressBar" : true,
+			"timeOut": "10000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+		}
+				toastr.success("{{ session('success') }}");
+		@endif
+	  
+		@if(Session::has('error'))
+		toastr.options =
+		{
+			"closeButton" : true,
+			"progressBar" : true,
+			"timeOut": "10000",
+			"positionClass": "toast-top-right",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+		}
+				toastr.error("{{ session('error') }}");
+		@endif
+	  
+		@if(Session::has('info'))
+		toastr.options =
+		{
+			"closeButton" : true,
+			"progressBar" : true,
+			"timeOut": "10000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+		}
+				toastr.info("{{ session('info') }}");
+		@endif
+	  
+		@if(Session::has('warning'))
+		toastr.options =
+		{
+			"closeButton" : true,
+			"progressBar" : true,
+			"timeOut": "10000",
+			"extendedTimeOut": "1000",
+			"showEasing": "swing",
+			"hideEasing": "linear",
+			"showMethod": "fadeIn",
+		}
+				toastr.warning("{{ session('warning') }}");
+		@endif
+	  </script>
+	  <script type="text/javascript">
+		$.ajaxSetup({
+			headers: {
+				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+			}
+		});
+		</script>
 	
 </body>
 </html>
