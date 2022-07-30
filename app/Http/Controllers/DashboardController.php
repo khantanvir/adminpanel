@@ -66,4 +66,13 @@ class DashboardController extends Controller{
         Session::flash('role_id',$role->id);
         return redirect('all-role');
     }
+    //get role data for ajax tets 
+    public function getRoleData(){
+        $role = Role::all();
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>$role
+        );
+        return response()->json($data, 200);
+    }
 }
