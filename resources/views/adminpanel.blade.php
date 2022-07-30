@@ -353,7 +353,6 @@
 			"extendedTimeOut": "1000",
 			"showEasing": "swing",
 			"hideEasing": "linear",
-			"showMethod": "fadeIn",
 		}
 				toastr.success("{{ session('success') }}");
 		@endif
@@ -368,7 +367,6 @@
 			"extendedTimeOut": "1000",
 			"showEasing": "swing",
 			"hideEasing": "linear",
-			"showMethod": "fadeIn",
 		}
 				toastr.error("{{ session('error') }}");
 		@endif
@@ -382,7 +380,6 @@
 			"extendedTimeOut": "1000",
 			"showEasing": "swing",
 			"hideEasing": "linear",
-			"showMethod": "fadeIn",
 		}
 				toastr.info("{{ session('info') }}");
 		@endif
@@ -396,7 +393,6 @@
 			"extendedTimeOut": "1000",
 			"showEasing": "swing",
 			"hideEasing": "linear",
-			"showMethod": "fadeIn",
 		}
 				toastr.warning("{{ session('warning') }}");
 		@endif
@@ -407,6 +403,18 @@
 				'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
 			}
 		});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$.ajax({url: "get-role-data", success: function(result){
+					console.log(result)
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					alert(xhr.status);
+					alert(thrownError);
+				}
+				});
+			});
 		</script>
 	
 </body>
