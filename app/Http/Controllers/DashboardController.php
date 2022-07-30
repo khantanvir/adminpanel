@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Role;
 use Illuminate\Support\Facades\Session;
 use App\Helper\ImageHelper;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendMailable;
 
 class DashboardController extends Controller{
     use ImageHelper;
@@ -18,6 +20,9 @@ class DashboardController extends Controller{
         $data['users'] = true;
         $data['all_role'] = true;
         $data['roles'] = Role::all();
+        Mail::to('aiub.tanvir@gmail.com')->send(new SendMailable("Tanvir"));
+ 
+        //dd("Email is Sent, please check your inbox.");
         return view('Role/all',$data);
     }
     //user list 
