@@ -20,7 +20,7 @@ class DashboardController extends Controller{
         $data['users'] = true;
         $data['all_role'] = true;
         $data['roles'] = Role::all();
-        Mail::to('aiub.tanvir@gmail.com')->send(new SendMailable("Tanvir"));
+        //Mail::to('aiub.tanvir@gmail.com')->send(new SendMailable("Tanvir"));
  
         //dd("Email is Sent, please check your inbox.");
         return view('Role/all',$data);
