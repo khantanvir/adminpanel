@@ -18,9 +18,8 @@
                                             <label class="form-check-label" for="checkAll"></label>
                                         </div>
                                     </th>
-                                    <th><strong>ROLL NO.</strong></th>
-                                    <th><strong>NAME</strong></th>
-                                    <th><strong>Email</strong></th>
+                                    <th><strong>Title</strong></th>
+                                    <th><strong>Discription</strong></th>
                                     <th><strong>Date</strong></th>
                                     <th><strong>Status</strong></th>
                                     <th><strong></strong></th>
@@ -34,7 +33,7 @@
                                             <label class="form-check-label" for="customCheckBox2"></label>
                                         </div>
                                     </td>
-                                    <td><strong>542</strong></td>
+
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
@@ -56,7 +55,7 @@
                                             <label class="form-check-label" for="customCheckBox3"></label>
                                         </div>
                                     </td>
-                                    <td><strong>542</strong></td>
+
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
@@ -78,7 +77,7 @@
                                             <label class="form-check-label" for="customCheckBox4"></label>
                                         </div>
                                     </td>
-                                    <td><strong>542</strong></td>
+
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
