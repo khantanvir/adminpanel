@@ -9,20 +9,28 @@
                 </div>
                 <div class="">
                            <div>
-                            <form>
+                            <form method="post" action="{{ URL::to('category-store') }}">
+                                @csrf
                             <div class="card-body">
                                 <div class="basic-form">
+                                    <input type="hidden" name="category_id" value="{{ (!empty($category->id))?$category->id:'' }}" class="form-control input-default ">
                                 <h4 class="card-title">Title</h4>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control input-default " placeholder="Product-name">
+                                        <input type="text" name="title" value="{{ (!empty($category->title))?$category->title:old('title') }}" class="form-control input-default ">
+                                        @if ($errors->has('title'))
+                                            <span class="text-danger">{{ $errors->first('title') }}</span>
+                                        @endif
                                     </div><br>
                                     <h4 class="card-title">Add Discription</h4>
                                 <div class="mb-3">
-                                    <textarea class="form-control" rows="4" id="comment"></textarea>
+                                    <textarea name="description" class="form-control" rows="4" id="comment">{{ (!empty($category->description))?$category->description:old('description') }}</textarea>
+                                    @if ($errors->has('description'))
+                                        <span class="text-danger">{{ $errors->first('description') }}</span>
+                                    @endif
                                 </div>
                                 </div>
 
-                                    <button type="button" class="btn btn-primary">Middle</button>
+                                    <button type="submit" class="btn btn-primary">Middle</button>
 
                             </div>
 
