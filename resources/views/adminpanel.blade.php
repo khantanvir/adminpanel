@@ -26,6 +26,7 @@
 	<!-- Style css -->
     <link href="{{ URL::to('public/backend/css/style.css ') }}" rel="stylesheet">
 	
+	
 </head>
 <body>
 
@@ -343,6 +344,7 @@
     <!--<script src="{{ URL::to('public/backend/js/styleSwitcher.js ') }}"></script>-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 	<script>
 		@if(Session::has('success'))
 		toastr.options =
@@ -413,6 +415,23 @@
 					alert(xhr.status);
 					alert(thrownError);
 				}
+				});
+			});
+		</script>
+		<script>
+			$(function(){
+				$('.change-status').change(function(){
+					var status = $(this).prop('checked') == true ? 0 : 1;
+					var category_id = $(this).data('id');
+						$.post('{{ URL::to('category-status-change') }}',
+						{
+							category_id: category_id,
+							status: status
+						},
+						function(data, status){
+							//alert("Data: " + data + "\nStatus: " + status);
+						});
+					
 				});
 			});
 		</script>

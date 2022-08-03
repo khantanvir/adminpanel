@@ -15,14 +15,13 @@ class CategoryController extends Controller{
         
     }
     public function add_category($url=NULL){
-        if(empty($url)){
-            Session::flash('warning','Catagory Url Not Found');
-            return redirect('all-category');
-        }
+        
         $data['page_title'] = 'Category | Crate Category';
         $data['categories'] = true;
         $data['create_category'] = true;
-        $data['category'] = Category::where('url',$url)->first();
+        if(!empty($url)){
+            $data['category'] = Category::where('url',$url)->first();
+        }
         return view('category/createCategory',$data);
     }
     //all category list
@@ -30,6 +29,7 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Category';
         $data['categories'] = true;
         $data['all_category'] = true;
+        $data['categories'] = Category::where('is_deleted',0)->paginate(2);
         return view('category/allCategory',$data);
     }
     //add subcategory
@@ -72,5 +72,23 @@ class CategoryController extends Controller{
             $catagory->save();
             Session::flash('success','Catagory data saved successfully');
             return redirect('all-category');
+    }
+    //category status change 
+    public function category_status_change(Request $request){
+        $category_id = $request->input('category_id');
+        $category = Category::find($category_id);
+        if(empty($category)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Category Data Not Found!'
+            );
+            return response()->json($data,200);
+        }
+        $update = Category::where('id',$category->id)->update(['status'=>$request->input('status')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Category Updated!'
+        );
+        return response()->json($data,200);
     }
 }

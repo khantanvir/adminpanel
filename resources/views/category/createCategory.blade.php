@@ -21,7 +21,7 @@
                                             <span class="text-danger">{{ $errors->first('title') }}</span>
                                         @endif
                                     </div><br>
-                                    <h4 class="card-title">Add Discription</h4>
+                                    <h4 class="card-title">Discription</h4>
                                 <div class="mb-3">
                                     <textarea name="description" class="form-control" rows="4" id="comment">{{ (!empty($category->description))?$category->description:old('description') }}</textarea>
                                     @if ($errors->has('description'))
