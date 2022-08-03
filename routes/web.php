@@ -41,6 +41,7 @@ Route::get('/all-admin-user', [App\Http\Controllers\DashboardController::class, 
 Route::get('/create-category', [CategoryController::class, 'add_category']);
 Route::get('/create-category/{id?}', [CategoryController::class, 'add_category']);
 Route::post('/category-store', [CategoryController::class, 'category_store']);
+Route::post('/category-status-change', [CategoryController::class, 'category_status_change']);
 Route::get('/all-category', [CategoryController::class, 'all_category']);
 Route::get('/create-subcategory', [CategoryController::class, 'add_subcategory']);
 Route::get('/all-subcategory', [CategoryController::class, 'all_subcategory']);
