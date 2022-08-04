@@ -23,7 +23,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($categories as $row)
-                                <tr>
+                                <tr class="{{ (!empty(Session::get('category_id')) && Session::get('category_id')==$row->id)?'table-primary':'' }}">
                                     <td>{{ $row->id }}</td>
                                     <td>{{ $row->title }}</td>
                                     <td>{{ $row->description }}</td>
@@ -33,9 +33,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a title="Deactivate" href="#" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fas fa-duotone fa-toggle-off"></i></a>
-                                            <a title="Activate" href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fas fa-toggle-on"></i></a>
-                                            <a title="Edit" href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a title="Edit" href="{{ URL::to('create-category/'.$row->url) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                             <a title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
@@ -45,7 +43,14 @@
                                 @endforelse
                                 
                             </tbody>
+                            
+                            
                         </table>
+                        <nav>
+                            <ul class="pagination pagination-xs pagination-gutter  pagination-warning">
+                                {!! $categories->links() !!}
+                            </ul>
+                        </nav>
                     </div>
                 </div>
             </div>

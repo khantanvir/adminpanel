@@ -21,6 +21,10 @@ class CategoryController extends Controller{
         $data['create_category'] = true;
         if(!empty($url)){
             $data['category'] = Category::where('url',$url)->first();
+            if(empty($data['category'])){
+                Session::flash('error','Catagory Data Not Found!');
+                return redirect('all-category');
+            }
         }
         return view('category/createCategory',$data);
     }
@@ -29,7 +33,7 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Category';
         $data['categories'] = true;
         $data['all_category'] = true;
-        $data['categories'] = Category::where('is_deleted',0)->paginate(2);
+        $data['categories'] = Category::where('is_deleted',0)->paginate(1);
         return view('category/allCategory',$data);
     }
     //add subcategory
@@ -48,29 +52,31 @@ class CategoryController extends Controller{
     }
     //category store 
     public function category_store(CategoryRequest $request){
-            $catagory_id = $request->input('catagory_id');
+            
+            $catagory_id = $request->input('category_id');
             if(!empty($catagory_id)){
-                $catagory = Category::find($catagory_id);
+                $catagory = Category::where('id',$catagory_id)->first();
             }else{
                 $catagory = new Category();
             }
-            
             $catagory->title = $request->input('title');
             $catagory->description = $request->input('description');
             $catagory->is_deleted = 0;
             //url modify
-            $url_modify = Service::slug_create($request->input('title'));
-            $checkSlug = Category::where('url', 'LIKE', '%' . $url_modify . '%')->count();
-            if ($checkSlug > 0) {
-                $new_number = $checkSlug + 1;
-                $new_slug = $url_modify . '-' . $new_number;
-                $catagory->url = $new_slug;
-            } else {
-                $catagory->url = $url_modify;
+            if(empty($catagory_id)){
+                $url_modify = Service::slug_create($request->input('title'));
+                $checkSlug = Category::where('url', 'LIKE', '%' . $url_modify . '%')->count();
+                if ($checkSlug > 0) {
+                    $new_number = $checkSlug + 1;
+                    $new_slug = $url_modify . '-' . $new_number;
+                    $catagory->url = $new_slug;
+                } else {
+                    $catagory->url = $url_modify;
+                }
             }
-
             $catagory->save();
-            Session::flash('success','Catagory data saved successfully');
+            Session::flash('category_id',$catagory->id);
+            Session::flash('success',(!empty($catagory_id))?'Catagory data Updated successfully':'Catagory data Saved Successfully');
             return redirect('all-category');
     }
     //category status change 
