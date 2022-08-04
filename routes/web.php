@@ -38,10 +38,14 @@ Route::get('/all-user', [App\Http\Controllers\DashboardController::class, 'all_u
 Route::get('/all-admin-user', [App\Http\Controllers\DashboardController::class, 'all_admin_user']);
 
 //category route 
-Route::get('/create-category', [CategoryController::class, 'add_category']);
-Route::get('/create-category/{id?}', [CategoryController::class, 'add_category']);
-Route::post('/category-store', [CategoryController::class, 'category_store']);
-Route::post('/category-status-change', [CategoryController::class, 'category_status_change']);
-Route::get('/all-category', [CategoryController::class, 'all_category']);
-Route::get('/create-subcategory', [CategoryController::class, 'add_subcategory']);
-Route::get('/all-subcategory', [CategoryController::class, 'all_subcategory']);
+Route::controller(CategoryController::class)->group(function() {
+    Route::get('/create-category', 'add_category');
+    Route::get('/create-category/{id?}', 'add_category');
+    Route::post('category-store', 'category_store');
+    Route::post('category-status-change', 'category_status_change');
+    Route::get('/all-category', 'all_category');
+    Route::get('/create-subcategory', 'add_subcategory');
+    Route::get('/all-subcategory', 'all_subcategory');
+    Route::get('/deleted-items', 'deleted_items');
+    Route::get('/attributes','attributes');
+});
