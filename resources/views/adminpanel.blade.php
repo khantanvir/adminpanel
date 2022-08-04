@@ -307,6 +307,7 @@
 							<li class="{{ (!empty($all_category) && $all_category==true)?'mm-active':'' }}"><a class="{{ (!empty($all_category) && $all_category==true)?'mm-active':'' }}" href="{{ URL::to('all-category') }}">All Category</a></li>
                             <li class="{{ (!empty($create_subcategory) && $create_subcategory==true)?'mm-active':'' }}"><a class="{{ (!empty($create_subcategory) && $create_subcategory==true)?'mm-active':'' }}" href="{{ URL::to('create-subcategory') }}">Create Subcategory</a></li>
 							<li class="{{ (!empty($all_subcategory) && $all_subcategory==true)?'mm-active':'' }}"><a class="{{ (!empty($all_subcategory) && $all_subcategory==true)?'mm-active':'' }}" href="{{ URL::to('all-subcategory') }}">All Subcategory</a></li>
+							<li class="{{ (!empty($deleted_items) && $deleted_items==true)?'mm-active':'' }}"><a class="{{ (!empty($deleted_items) && $deleted_items==true)?'mm-active':'' }}" href="{{ URL::to('deleted-items') }}">Deleted Items</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -435,6 +436,25 @@
 				});
 			});
 		</script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				var max = 10;
+				var cnt = 1;
+				$(".add-textbox").on("click", function(e){
+					e.preventDefault();
+					if(cnt < max){
+						cnt++;
+						$(".textbox-wrapper").append('<div class="input-group"><input type="text" name="text_arr[]" class="form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br>');
+					}
+				});
+			   
+				$(".textbox-wrapper").on("click",".remove-textbox", function(e){
+					e.preventDefault();
+					$(this).parents(".input-group").remove();
+					cnt--;
+				});
+			});
+			</script>
 	
 </body>
 </html>

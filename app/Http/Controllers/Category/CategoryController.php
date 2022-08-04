@@ -8,6 +8,7 @@ use App\Http\Requests\Category\CategoryRequest;
 use App\Models\Category\Category;
 use App\Helper\Service;
 use Illuminate\Support\Facades\Session;
+use App\Models\Attributes\Attribute;
 
 class CategoryController extends Controller{
     use Service;
@@ -96,5 +97,20 @@ class CategoryController extends Controller{
             'val'=>'Category Updated!'
         );
         return response()->json($data,200);
+    }
+    //all deleted item of category, subcategory, attribute
+    public function deleted_items(){
+        $data['page_title'] = 'Category | All Deleted Items';
+        $data['categories'] = true;
+        $data['deleted_items'] = true;
+        return view('category/deletedItem',$data);
+    }
+    //attribute list 
+    public function attributes(){
+        $data['page_title'] = 'Category | All Attributes';
+        $data['categories'] = true;
+        $data['attributes'] = true;
+        $data['attribute_list'] = Attribute::all();
+        return view('category/attributes',$data);
     }
 }
