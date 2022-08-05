@@ -7,8 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Category\CategoryRequest;
 use App\Models\Category\Category;
 use App\Helper\Service;
+use App\Http\Requests\Attribute\AttributeRequest;
 use Illuminate\Support\Facades\Session;
 use App\Models\Attributes\Attribute;
+use App\Models\Attributes\AttributeValue;
 
 class CategoryController extends Controller{
     use Service;
@@ -111,6 +113,24 @@ class CategoryController extends Controller{
         $data['categories'] = true;
         $data['attributes'] = true;
         $data['attribute_list'] = Attribute::all();
+        $data['attribute_values'] = AttributeValue::paginate(1);
         return view('category/attributes',$data);
+    }
+    //store attribute
+    public function store_attribute(AttributeRequest $request){
+        $attribute_array = $request->input('attribute_arr');
+        $main_attribute = $request->input('main_attribute');
+        foreach($attribute_array as $row){
+            if(empty($row)){
+                Session::flash('warning','Please Full Up Attribute Data Properly!');
+                return redirect('attributes');
+            }
+            $arrtibute_val = new AttributeValue();
+            $arrtibute_val->attribute_id = $main_attribute;
+            $arrtibute_val->name = $row;
+            $arrtibute_val->save();
+        }
+        Session::flash('success','Attribute data saved successfully!');
+        return redirect('attributes');
     }
 }
