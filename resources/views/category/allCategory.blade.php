@@ -41,10 +41,7 @@
                                 @empty
                                 <p class="bg-danger text-white p-1">No Item Found</p>
                                 @endforelse
-                                
                             </tbody>
-                            
-                            
                         </table>
                         <nav>
                             <ul class="pagination pagination-xs pagination-gutter  pagination-warning">

@@ -48,4 +48,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/all-subcategory', 'all_subcategory');
     Route::get('/deleted-items', 'deleted_items');
     Route::get('/attributes','attributes');
+    Route::post('/store-attribute','store_attribute');
 });
