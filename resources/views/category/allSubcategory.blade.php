@@ -5,19 +5,13 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Exam Toppers</h4>
+                    <h4 class="card-title">Add Category</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-responsive-md">
                             <thead>
                                 <tr>
-                                    <th style="width:50px;">
-                                        <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                            <input type="checkbox" class="form-check-input" id="checkAll" required="">
-                                            <label class="form-check-label" for="checkAll"></label>
-                                        </div>
-                                    </th>
                                     <th><strong>Title</strong></th>
                                     <th><strong>Discription</strong></th>
                                     <th><strong>Date</strong></th>
@@ -27,13 +21,6 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                            <input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-                                            <label class="form-check-label" for="customCheckBox2"></label>
-                                        </div>
-                                    </td>
-
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
@@ -49,13 +36,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                            <input type="checkbox" class="form-check-input" id="customCheckBox3" required="">
-                                            <label class="form-check-label" for="customCheckBox3"></label>
-                                        </div>
-                                    </td>
-
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
@@ -71,13 +51,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <div class="form-check custom-checkbox checkbox-success check-lg me-3">
-                                            <input type="checkbox" class="form-check-input" id="customCheckBox4" required="">
-                                            <label class="form-check-label" for="customCheckBox4"></label>
-                                        </div>
-                                    </td>
-
                                     <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
                                     <td>example@example.com	</td>
                                     <td>01 August 2020</td>
