@@ -13,17 +13,21 @@
                             <thead>
                                 <tr>
                                     <th><strong>Title</strong></th>
+                                    <th><strong>Id</strong></th>
                                     <th><strong>Discription</strong></th>
+                                    <th><strong>Main Category</strong></th>
                                     <th><strong>Date</strong></th>
                                     <th><strong>Status</strong></th>
-                                    <th><strong></strong></th>
+                                    <th><strong>Action</strong></th>
                                 </tr>
                             </thead>
                             <tbody>
+                                @forelse ($subcategories as $row)
                                 <tr>
-                                    <td><div class="d-flex align-items-center"><img src="images/avatar/1.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
-                                    <td>example@example.com	</td>
-                                    <td>01 August 2020</td>
+                                    <td>{{ $row->title }}</td>
+                                    <td>{{ $row->description }}	</td>
+                                    <td>{{ $row->get_category->title }}</td>
+                                    <td>{{ date('M/d/Y',strtotime($row->created_at)) }}</td>
                                     <td><span class="badge light badge-success">Successful</span></td>
                                     <td><span class="badge light badge-danger">Canceled</span></td>
                                     <td>
@@ -35,36 +39,12 @@
                                         </div>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><div class="d-flex align-items-center"><img src="images/avatar/2.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
-                                    <td>example@example.com	</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-success">Successful</span></td>
-                                    <td><span class="badge light badge-danger">Canceled</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a title="Deactivate" href="#" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fas fa-duotone fa-toggle-off"></i></a>
-                                            <a title="Activate" href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fas fa-toggle-on"></i></a>
-                                            <a title="Edit" href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                            <a title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><div class="d-flex align-items-center"><img src="images/avatar/3.jpg" class="rounded-lg me-2" width="24" alt=""> <span class="w-space-no">Dr. Jackson</span></div></td>
-                                    <td>example@example.com	</td>
-                                    <td>01 August 2020</td>
-                                    <td><span class="badge light badge-success">Successful</span></td>
-                                    <td><span class="badge light badge-danger">Canceled</span></td>
-                                    <td>
-                                        <div class="d-flex">
-                                            <a title="Deactivate" href="#" class="btn btn-danger shadow btn-xs sharp me-1"><i class="fas fa-duotone fa-toggle-off"></i></a>
-                                            <a title="Activate" href="#" class="btn btn-warning shadow btn-xs sharp me-1"><i class="fas fa-toggle-on"></i></a>
-                                            <a title="Edit" href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                            <a title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @empty
+                                <p class="bg-danger text-white p-1">No Item Found</p>
+                                @endforelse
+                                
+                                
+                                
                             </tbody>
                         </table>
                     </div>

@@ -45,7 +45,9 @@ Route::controller(CategoryController::class)->group(function() {
     Route::post('category-status-change', 'category_status_change');
     Route::get('/all-category', 'all_category');
     Route::get('/create-subcategory', 'add_subcategory');
+    Route::get('/create-subcategory/{id?}', 'add_subcategory');
     Route::get('/all-subcategory', 'all_subcategory');
+    Route::post('/store-subcategory', 'store_subcategory');
     Route::get('/deleted-items', 'deleted_items');
     Route::get('/attributes','attributes');
     Route::post('/store-attribute','store_attribute');
