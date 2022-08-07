@@ -49,4 +49,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/deleted-items', 'deleted_items');
     Route::get('/attributes','attributes');
     Route::post('/store-attribute','store_attribute');
+    Route::post('/attribute-value-status-change','attribute_value_status_change');
 });

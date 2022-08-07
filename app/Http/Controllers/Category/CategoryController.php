@@ -11,6 +11,7 @@ use App\Http\Requests\Attribute\AttributeRequest;
 use Illuminate\Support\Facades\Session;
 use App\Models\Attributes\Attribute;
 use App\Models\Attributes\AttributeValue;
+use Illuminate\Support\Facades\URL;
 
 class CategoryController extends Controller{
     use Service;
@@ -112,6 +113,8 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Attributes';
         $data['categories'] = true;
         $data['attributes'] = true;
+        $data['current'] = URL::full();
+        Session::put('current_url',$data['current']);
         $data['attribute_list'] = Attribute::all();
         $data['attribute_values'] = AttributeValue::paginate(1);
         return view('category/attributes',$data);
@@ -132,5 +135,27 @@ class CategoryController extends Controller{
         }
         Session::flash('success','Attribute data saved successfully!');
         return redirect('attributes');
+    }
+    //attribute value status change 
+    public function attribute_value_status_change(Request $request){
+        $attribute_value_id = $request->input('attribute_value_id');
+        $attribute_value = AttributeValue::find($attribute_value_id);
+        if(empty($attribute_value)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Attribute Value Data Not Found!'
+            );
+            return response()->json($data,200);
+        }
+        $update = AttributeValue::where('id',$attribute_value->id)->update(['status'=>$request->input('status')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Attribute Value Updated!'
+        );
+        return response()->json($data,200);
+    }
+    //delete attribute 
+    public function delete_attribute_value(){
+        
     }
 }

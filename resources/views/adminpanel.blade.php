@@ -444,6 +444,24 @@
 				});
 			});
 			</script>
+			<script>
+				//attribute change status function
+				$(function(){
+					$('.change-attribute-status').change(function(){
+						alert('vv');
+						var status = $(this).prop('checked') == true ? 0 : 1;
+						var attribute_id = $(this).data('id');
+						$.post('{{ URL::to('attribute-value-status-change') }}',
+						{
+							attribute_value_id: attribute_id,
+							status: status
+						},
+						function(data,status){
+
+						});
+					});
+				});
+			</script>
 	
 </body>
 </html>

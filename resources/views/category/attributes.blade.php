@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" integrity="sha512-hievggED+/IcfxhYRSr4Auo1jbiOczpqpLZwfTVL/6hFACdbI3WQ8S9NCX50gsM9QVE+zLk/8wb9TlgriFbX+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="content-body">
     <div class="container-fluid">
-        <div class="col-lg-12">
-            <div class="card mb-8">
+        <div class="col-md-12">
+            <div class="card col-md-8">
                 <div class="card-header">
                     <h4 class="card-title">Add Attributes</h4>
                 </div>
@@ -67,7 +67,7 @@
                                     <td>{{ $row->attribute->name }}</td>
                                     <td>{{ $row->name }}</td>
                                     <td>
-                                        <input class="change-status" type="checkbox" data-id="{{ $row->id }}" data-toggle="toggle" {{ ($row->status==0)?'checked':'' }} data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                        <input class="change-attribute-status" type="checkbox" data-id="{{ $row->id }}" data-toggle="toggle" {{ ($row->status==0)?'checked':'' }} data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
                                     </td>
                                     <td>
                                         <div class="d-flex">
