@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Session;
 use App\Models\Attributes\Attribute;
 use App\Models\Attributes\AttributeValue;
 use Illuminate\Support\Facades\URL;
+use App\Http\Requests\Category\SubcategoryRequest;
+use App\Models\Category\Subcategory;
 
 class CategoryController extends Controller{
     use Service;
@@ -41,17 +43,47 @@ class CategoryController extends Controller{
         return view('category/allCategory',$data);
     }
     //add subcategory
-    public function add_subcategory(){
+    public function add_subcategory($id=NULL){
         $data['page_title'] = 'Category | Crate Subcategory';
         $data['categories'] = true;
         $data['create_subcategory'] = true;
+        $data['all_categories'] = Category::where('status',0)->where('is_deleted',0)->get();
         return view('category/createSubcategory',$data);
+    }
+    //store subcategry
+    public function store_subcategory(SubcategoryRequest $request){
+        $subcatagory_id = $request->input('subcategory_id');
+            if(!empty($subcatagory_id)){
+                $subcatagory = Subcategory::where('id',$subcatagory_id)->first();
+            }else{
+                $subcatagory = new Subcategory();
+            }
+            $subcatagory->title = $request->input('title');
+            $subcatagory->description = $request->input('description');
+            $subcatagory->category_id = $request->input('category_id');
+            //url modify
+            if(empty($subcatagory_id)){
+                $url_modify = Service::slug_create($request->input('title'));
+                $checkSlug = Subcategory::where('url', 'LIKE', '%' . $url_modify . '%')->count();
+                if ($checkSlug > 0) {
+                    $new_number = $checkSlug + 1;
+                    $new_slug = $url_modify . '-' . $new_number;
+                    $subcatagory->url = $new_slug;
+                } else {
+                    $subcatagory->url = $url_modify;
+                }
+            }
+            $subcatagory->save();
+            Session::flash('subcategory_id',$subcatagory->id);
+            Session::flash('success',(!empty($subcatagory_id))?'Subcatagory data Updated successfully':'Subcatagory data Saved Successfully');
+            return redirect('all-subcategory');
     }
     //all subcategory
     public function all_subcategory(){
         $data['page_title'] = 'Category | All Subcategory';
         $data['categories'] = true;
         $data['all_subcategory'] = true;
+        $data['subcategories'] = Subcategory::where('is_deleted',0)->paginate(6);
         return view('category/allSubcategory',$data);
     }
     //category store 
@@ -192,4 +224,5 @@ class CategoryController extends Controller{
         );
         return response()->json($data,200);
     }
+    
 }
