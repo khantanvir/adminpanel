@@ -29,7 +29,7 @@
                                     <td>{{ $row->description }}</td>
                                     <td>{{ date('M/d/y',strtotime($row->created_at)) }}</td>
                                     <td>
-                                        <input class="change-attribute-status" type="checkbox" data-id="{{ $row->id }}" data-toggle="toggle" {{ ($row->status==0)?'checked':'' }} data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
+                                        <input class="change-status" type="checkbox" data-id="{{ $row->id }}" data-toggle="toggle" {{ ($row->status==0)?'checked':'' }} data-on="Active" data-off="Inactive" data-onstyle="success" data-offstyle="danger">
                                     </td>
                                     <td>
                                         <div class="d-flex">

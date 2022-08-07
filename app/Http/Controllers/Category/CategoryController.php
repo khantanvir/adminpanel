@@ -106,6 +106,7 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Deleted Items';
         $data['categories'] = true;
         $data['deleted_items'] = true;
+        $data['attribute_values'] = AttributeValue::where('is_deleted',1)->paginate(3);
         return view('category/deletedItem',$data);
     }
     //attribute list 
@@ -116,7 +117,7 @@ class CategoryController extends Controller{
         $data['current'] = URL::full();
         Session::put('current_url',$data['current']);
         $data['attribute_list'] = Attribute::all();
-        $data['attribute_values'] = AttributeValue::paginate(1);
+        $data['attribute_values'] = AttributeValue::where('is_deleted',0)->paginate(2);
         return view('category/attributes',$data);
     }
     //store attribute
@@ -155,7 +156,40 @@ class CategoryController extends Controller{
         return response()->json($data,200);
     }
     //delete attribute 
-    public function delete_attribute_value(){
+    public function attribute_value_delete($id=NULL){
+        if(empty($id)){
+            Session::flash('warning','Attribute Id Not Found!');
+            return redirect()->back();
+        }
+        $attributeValue = AttributeValue::find($id);
+        if(empty($attributeValue)){
+            Session::flash('error','Attribute Data Not Found!');
+            return redirect()->back();
+        }
+        $delete = AttributeValue::where('id',$attributeValue->id)->update(['is_deleted'=>1]);
+        Session::flash('success','Attribute Data Deleted Successfully!');
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('attributes');
+        }
+    }
+    //roll back attribute data 
+    public function roll_back_attribute_value(Request $request){
         
+        $attributeValue = AttributeValue::find($request->input('attribute_id'));
+        if(empty($attributeValue)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Attribute Data Not Found'
+            );
+            return response()->json($data,200);
+        }
+        $delete = AttributeValue::where('id',$attributeValue->id)->update(['is_deleted'=>$request->input('is_deleted')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Attribute Value Roll Back Successfully'
+        );
+        return response()->json($data,200);
     }
 }

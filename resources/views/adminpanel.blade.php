@@ -424,6 +424,36 @@
 					
 				});
 			});
+			//attribute change status function
+			$(function(){
+					$('.change-attribute-status').change(function(){
+						var status = $(this).prop('checked') == true ? 0 : 1;
+						var attribute_id = $(this).data('id');
+						$.post('{{ URL::to('attribute-value-status-change') }}',
+						{
+							attribute_value_id: attribute_id,
+							status: status
+						},
+						function(data,status){
+
+						});
+					});
+				});
+			$(function(){
+				$('.roll-back-attribute-value').change(function(){
+					var is_deleted = $(this).prop('checked') == false ? 1 : 0;
+					var attribute_id = $(this).data('id');
+					$.post('{{ URL::to('roll-back-attribute-value') }}',
+					{
+						attribute_id: attribute_id,
+						is_deleted: is_deleted
+					},
+					function(data,status){
+						console.log(data);
+					});
+				});
+				
+			});
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -444,24 +474,5 @@
 				});
 			});
 			</script>
-			<script>
-				//attribute change status function
-				$(function(){
-					$('.change-attribute-status').change(function(){
-						alert('vv');
-						var status = $(this).prop('checked') == true ? 0 : 1;
-						var attribute_id = $(this).data('id');
-						$.post('{{ URL::to('attribute-value-status-change') }}',
-						{
-							attribute_value_id: attribute_id,
-							status: status
-						},
-						function(data,status){
-
-						});
-					});
-				});
-			</script>
-	
 </body>
 </html>

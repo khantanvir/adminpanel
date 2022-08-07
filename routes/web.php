@@ -50,4 +50,7 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/attributes','attributes');
     Route::post('/store-attribute','store_attribute');
     Route::post('/attribute-value-status-change','attribute_value_status_change');
+    Route::get('/attribute-value-delete/{id?}','attribute_value_delete');
+    Route::get('/roll-back-attribute-value/{id?}','roll_back_attribute_value');
+    Route::post('/roll-back-attribute-value','roll_back_attribute_value');
 });
