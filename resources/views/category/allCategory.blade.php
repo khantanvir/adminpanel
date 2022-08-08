@@ -33,7 +33,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a title="Edit" href="{{ URL::to('create-category/'.$row->url) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a title="Edit" href="{{ URL::to('create-category/'.$row->id) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                             <a title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
