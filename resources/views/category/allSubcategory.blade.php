@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Category</h4>
+                    <h4 class="card-title">Add Subcategory</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -24,7 +24,7 @@
                             </thead>
                             <tbody>
                                 @forelse ($subcategories as $row)
-                                <tr>
+                                <tr class="{{ (!empty(Session::get('subcategory_id')) && Session::get('subcategory_id')==$row->id)?'table-primary':'' }}">
                                     <td>{{ $row->title }}</td>
                                     <td>{{ $row->id }}</td>
                                     <td>{{ $row->description }}	</td>
