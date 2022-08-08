@@ -57,4 +57,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/attribute-value-delete/{id?}','attribute_value_delete');
     Route::get('/roll-back-attribute-value/{id?}','roll_back_attribute_value');
     Route::post('/roll-back-attribute-value','roll_back_attribute_value');
+    Route::post('/roll-back-subcategory-status','roll_back_subcategory_status');
 });

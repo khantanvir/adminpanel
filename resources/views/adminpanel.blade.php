@@ -447,6 +447,22 @@
 				});
 				
 			});
+			//roll back subcategory data
+			$(function(){
+				$('.roll-back-subcategory-status').change(function(){
+					var is_deleted = $(this).prop('checked') == false ? 1 : 0;
+					var subcategory_id = $(this).data('id');
+					$.post('{{ URL::to('roll-back-subcategory-status') }}',
+					{
+						subcategory_id: subcategory_id,
+						is_deleted: is_deleted
+					},
+					function(data,status){
+						console.log(data);
+					});
+				});
+				
+			});
 			//subcategory status change 
 			$(function(){
 				$('.change-subcategory-status').change(function(){

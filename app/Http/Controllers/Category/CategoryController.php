@@ -39,7 +39,7 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Category';
         $data['categories'] = true;
         $data['all_category'] = true;
-        $data['categories'] = Category::where('is_deleted',0)->paginate(1);
+        $data['categories'] = Category::where('is_deleted',0)->orderBy('id','desc')->paginate(1);
         return view('category/allCategory',$data);
     }
     //add subcategory
@@ -86,7 +86,7 @@ class CategoryController extends Controller{
         $data['all_subcategory'] = true;
         $data['current'] = URL::full();
         Session::put('current_url',$data['current']);
-        $data['subcategories'] = Subcategory::where('is_deleted',0)->paginate(1);
+        $data['subcategories'] = Subcategory::where('is_deleted',0)->orderBy('id','desc')->paginate(1);
         return view('category/allSubcategory',$data);
     }
     //subcategory status change 
@@ -104,6 +104,23 @@ class CategoryController extends Controller{
         $data['result'] = array(
             'key'=>200,
             'val'=>'Subcategory Updated!'
+        );
+        return response()->json($data,200);
+    }
+    //rollback subcategory data
+    public function roll_back_subcategory_status(Request $request){
+        $subcategoryValue = Subcategory::find($request->input('subcategory_id'));
+        if(empty($subcategoryValue)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Subcategory Data Not Found'
+            );
+            return response()->json($data,200);
+        }
+        $delete = Subcategory::where('id',$subcategoryValue->id)->update(['is_deleted'=>$request->input('is_deleted')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Subcategory Value Roll Back Successfully'
         );
         return response()->json($data,200);
     }
@@ -179,6 +196,7 @@ class CategoryController extends Controller{
         $data['categories'] = true;
         $data['deleted_items'] = true;
         $data['attribute_values'] = AttributeValue::where('is_deleted',1)->paginate(3);
+        $data['subcategories'] = Subcategory::where('is_deleted',1)->paginate(3);
         return view('category/deletedItem',$data);
     }
     //attribute list 
