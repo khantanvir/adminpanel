@@ -30,7 +30,7 @@
                                 </div>
                                 </div>
 
-                                    <button type="submit" class="btn btn-primary">Middle</button>
+                                    <button type="submit" class="btn btn-primary">Add</button>
 
                             </div>
 

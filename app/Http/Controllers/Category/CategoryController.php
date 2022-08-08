@@ -47,6 +47,7 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | Crate Subcategory';
         $data['categories'] = true;
         $data['create_subcategory'] = true;
+        $data['sub_category'] = Subcategory::find($id);
         $data['all_categories'] = Category::where('status',0)->where('is_deleted',0)->get();
         return view('category/createSubcategory',$data);
     }
@@ -83,8 +84,47 @@ class CategoryController extends Controller{
         $data['page_title'] = 'Category | All Subcategory';
         $data['categories'] = true;
         $data['all_subcategory'] = true;
-        $data['subcategories'] = Subcategory::where('is_deleted',0)->paginate(6);
+        $data['current'] = URL::full();
+        Session::put('current_url',$data['current']);
+        $data['subcategories'] = Subcategory::where('is_deleted',0)->paginate(1);
         return view('category/allSubcategory',$data);
+    }
+    //subcategory status change 
+    public function subcategory_status_change(Request $request){
+        $subcategory_id = $request->input('subcategory_id');
+        $subcategory = Subcategory::find($subcategory_id);
+        if(empty($subcategory)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Subcategory Data Not Found!'
+            );
+            return response()->json($data,200);
+        }
+        $update = Subcategory::where('id',$subcategory->id)->update(['status'=>$request->input('status')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Subcategory Updated!'
+        );
+        return response()->json($data,200);
+    }
+    //subcategory value delete 
+    public function subcategory_value_delete($id=NULL){
+        if(empty($id)){
+            Session::flash('warning','Subcategory Id Not Found!');
+            return redirect()->back();
+        }
+        $subcategoryValue = Subcategory::find($id);
+        if(empty($subcategoryValue)){
+            Session::flash('error','Subcategory Data Not Found!');
+            return redirect()->back();
+        }
+        $delete = Subcategory::where('id',$subcategoryValue->id)->update(['is_deleted'=>1]);
+        Session::flash('success','Subcategory Data Deleted Successfully!');
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('all-subcategory');
+        }
     }
     //category store 
     public function category_store(CategoryRequest $request){

@@ -48,6 +48,8 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/create-subcategory/{id?}', 'add_subcategory');
     Route::get('/all-subcategory', 'all_subcategory');
     Route::post('/store-subcategory', 'store_subcategory');
+    Route::post('subcategory-status-change', 'subcategory_status_change');
+    Route::get('/subcategory-value-delete/{id?}','subcategory_value_delete');
     Route::get('/deleted-items', 'deleted_items');
     Route::get('/attributes','attributes');
     Route::post('/store-attribute','store_attribute');

@@ -314,17 +314,10 @@
                 </ul>
 			</div>
         </div>
-        <!--**********************************
-            Sidebar end
-        ***********************************-->
 		@yield('admin')
-        <!--**********************************
-            Footer start
-        ***********************************-->
         <div class="footer">
-		
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="https://dexignlab.com/" target="_blank">DexignLab</a> 2022</p>
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Redlep</a> 2022</p>
             </div>
         </div>
 	</div>
@@ -454,6 +447,22 @@
 				});
 				
 			});
+			//subcategory status change 
+			$(function(){
+				$('.change-subcategory-status').change(function(){
+					var status = $(this).prop('checked') == true ? 0 : 1;
+					var subcategory_id = $(this).data('id');
+						$.post('{{ URL::to('subcategory-status-change') }}',
+						{
+							subcategory_id: subcategory_id,
+							status: status
+						},
+						function(data, status){
+							//alert("Data: " + data + "\nStatus: " + status);
+						});
+					
+				});
+			});
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
@@ -473,6 +482,7 @@
 					cnt--;
 				});
 			});
+			
 			</script>
 </body>
 </html>
