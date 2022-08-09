@@ -34,7 +34,7 @@
                                     <td>
                                         <div class="d-flex">
                                             <a title="Edit" href="{{ URL::to('create-category/'.$row->id) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                            <a title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Category Data?')) location.href='{{ URL::to('category-value-delete/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
