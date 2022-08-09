@@ -43,6 +43,7 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/create-category/{id?}', 'add_category');
     Route::post('category-store', 'category_store');
     Route::post('category-status-change', 'category_status_change');
+    Route::get('/category-value-delete/{id?}','category_value_delete');
     Route::get('/all-category', 'all_category');
     Route::get('/create-subcategory', 'add_subcategory');
     Route::get('/create-subcategory/{id?}', 'add_subcategory');
@@ -58,4 +59,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::get('/roll-back-attribute-value/{id?}','roll_back_attribute_value');
     Route::post('/roll-back-attribute-value','roll_back_attribute_value');
     Route::post('/roll-back-subcategory-status','roll_back_subcategory_status');
+    Route::post('/roll-back-category-status','roll_back_category_status');
 });

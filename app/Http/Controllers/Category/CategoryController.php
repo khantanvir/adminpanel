@@ -20,13 +20,12 @@ class CategoryController extends Controller{
     public function index(){
         
     }
-    public function add_category($url=NULL){
-        
+    public function add_category($id=NULL){
         $data['page_title'] = 'Category | Crate Category';
         $data['categories'] = true;
         $data['create_category'] = true;
-        if(!empty($url)){
-            $data['category'] = Category::where('url',$url)->first();
+        if(!empty($id)){
+            $data['category'] = Category::where('id',$id)->first();
             if(empty($data['category'])){
                 Session::flash('error','Catagory Data Not Found!');
                 return redirect('all-category');
@@ -44,7 +43,7 @@ class CategoryController extends Controller{
     }
     //add subcategory
     public function add_subcategory($id=NULL){
-        $data['page_title'] = 'Category | Crate Subcategory';
+        $data['page_title'] = 'Category | Create Subcategory';
         $data['categories'] = true;
         $data['create_subcategory'] = true;
         $data['sub_category'] = Subcategory::find($id);
@@ -54,30 +53,30 @@ class CategoryController extends Controller{
     //store subcategry
     public function store_subcategory(SubcategoryRequest $request){
         $subcatagory_id = $request->input('subcategory_id');
-            if(!empty($subcatagory_id)){
-                $subcatagory = Subcategory::where('id',$subcatagory_id)->first();
-            }else{
-                $subcatagory = new Subcategory();
+        if(!empty($subcatagory_id)){
+            $subcatagory = Subcategory::where('id',$subcatagory_id)->first();
+        }else{
+            $subcatagory = new Subcategory();
+        }
+        $subcatagory->title = $request->input('title');
+        $subcatagory->description = $request->input('description');
+        $subcatagory->category_id = $request->input('category_id');
+        //url modify
+        if(empty($subcatagory_id)){
+            $url_modify = Service::slug_create($request->input('title'));
+            $checkSlug = Subcategory::where('url', 'LIKE', '%' . $url_modify . '%')->count();
+            if ($checkSlug > 0) {
+                $new_number = $checkSlug + 1;
+                $new_slug = $url_modify . '-' . $new_number;
+                $subcatagory->url = $new_slug;
+            } else {
+                $subcatagory->url = $url_modify;
             }
-            $subcatagory->title = $request->input('title');
-            $subcatagory->description = $request->input('description');
-            $subcatagory->category_id = $request->input('category_id');
-            //url modify
-            if(empty($subcatagory_id)){
-                $url_modify = Service::slug_create($request->input('title'));
-                $checkSlug = Subcategory::where('url', 'LIKE', '%' . $url_modify . '%')->count();
-                if ($checkSlug > 0) {
-                    $new_number = $checkSlug + 1;
-                    $new_slug = $url_modify . '-' . $new_number;
-                    $subcatagory->url = $new_slug;
-                } else {
-                    $subcatagory->url = $url_modify;
-                }
-            }
-            $subcatagory->save();
-            Session::flash('subcategory_id',$subcatagory->id);
-            Session::flash('success',(!empty($subcatagory_id))?'Subcatagory data Updated successfully':'Subcatagory data Saved Successfully');
-            return redirect('all-subcategory');
+        }
+        $subcatagory->save();
+        Session::flash('subcategory_id',$subcatagory->id);
+        Session::flash('success',(!empty($subcatagory_id))?'Subcatagory data Updated successfully':'Subcatagory data Saved Successfully');
+        return redirect('all-subcategory');
     }
     //all subcategory
     public function all_subcategory(){
@@ -124,6 +123,23 @@ class CategoryController extends Controller{
         );
         return response()->json($data,200);
     }
+    //roll back category data
+    public function roll_back_category_status(Request $request){
+        $categoryValue = Category::find($request->input('category_id'));
+        if(empty($categoryValue)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Category Data Not Found'
+            );
+            return response()->json($data,200);
+        }
+        $delete = Category::where('id',$categoryValue->id)->update(['is_deleted'=>$request->input('is_deleted')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Category Value Roll Back Successfully'
+        );
+        return response()->json($data,200);
+    }
     //subcategory value delete 
     public function subcategory_value_delete($id=NULL){
         if(empty($id)){
@@ -145,32 +161,31 @@ class CategoryController extends Controller{
     }
     //category store 
     public function category_store(CategoryRequest $request){
-            
-            $catagory_id = $request->input('category_id');
-            if(!empty($catagory_id)){
-                $catagory = Category::where('id',$catagory_id)->first();
-            }else{
-                $catagory = new Category();
+        $catagory_id = $request->input('category_id');
+        if(!empty($catagory_id)){
+            $catagory = Category::where('id',$catagory_id)->first();
+        }else{
+            $catagory = new Category();
+        }
+        $catagory->title = $request->input('title');
+        $catagory->description = $request->input('description');
+        $catagory->is_deleted = 0;
+        //url modify
+        if(empty($catagory_id)){
+            $url_modify = Service::slug_create($request->input('title'));
+            $checkSlug = Category::where('url', 'LIKE', '%' . $url_modify . '%')->count();
+            if ($checkSlug > 0) {
+                $new_number = $checkSlug + 1;
+                $new_slug = $url_modify . '-' . $new_number;
+                $catagory->url = $new_slug;
+            } else {
+                $catagory->url = $url_modify;
             }
-            $catagory->title = $request->input('title');
-            $catagory->description = $request->input('description');
-            $catagory->is_deleted = 0;
-            //url modify
-            if(empty($catagory_id)){
-                $url_modify = Service::slug_create($request->input('title'));
-                $checkSlug = Category::where('url', 'LIKE', '%' . $url_modify . '%')->count();
-                if ($checkSlug > 0) {
-                    $new_number = $checkSlug + 1;
-                    $new_slug = $url_modify . '-' . $new_number;
-                    $catagory->url = $new_slug;
-                } else {
-                    $catagory->url = $url_modify;
-                }
-            }
-            $catagory->save();
-            Session::flash('category_id',$catagory->id);
-            Session::flash('success',(!empty($catagory_id))?'Catagory data Updated successfully':'Catagory data Saved Successfully');
-            return redirect('all-category');
+        }
+        $catagory->save();
+        Session::flash('category_id',$catagory->id);
+        Session::flash('success',(!empty($catagory_id))?'Catagory data Updated successfully':'Catagory data Saved Successfully');
+        return redirect('all-category');
     }
     //category status change 
     public function category_status_change(Request $request){
@@ -190,6 +205,21 @@ class CategoryController extends Controller{
         );
         return response()->json($data,200);
     }
+    //category value delete 
+    public function category_value_delete($id=NULL){
+        if(empty($id)){
+            Session::flash('warning','Category Id Not Found!');
+            return redirect()->back();
+        }
+        $categoryValue = Category::find($id);
+        if(empty($categoryValue)){
+            Session::flash('error','Category Data Not Found!');
+            return redirect()->back();
+        }
+        $delete = Category::where('id',$categoryValue->id)->update(['is_deleted'=>1]);
+        Session::flash('success','Category Data Deleted Successfully!');
+        return redirect('all-category');
+    }
     //all deleted item of category, subcategory, attribute
     public function deleted_items(){
         $data['page_title'] = 'Category | All Deleted Items';
@@ -197,6 +227,7 @@ class CategoryController extends Controller{
         $data['deleted_items'] = true;
         $data['attribute_values'] = AttributeValue::where('is_deleted',1)->paginate(3);
         $data['subcategories'] = Subcategory::where('is_deleted',1)->paginate(3);
+        $data['categories'] = Category::where('is_deleted',1)->orderBy('id','desc')->paginate(1);
         return view('category/deletedItem',$data);
     }
     //attribute list 

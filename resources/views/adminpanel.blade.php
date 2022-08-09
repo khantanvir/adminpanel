@@ -463,6 +463,22 @@
 				});
 				
 			});
+			//roll back category data
+			$(function(){
+				$('.roll-back-category-status').change(function(){
+					var is_deleted = $(this).prop('checked') == false ? 1 : 0;
+					var category_id = $(this).data('id');
+					$.post('{{ URL::to('roll-back-category-status') }}',
+					{
+						category_id: category_id,
+						is_deleted: is_deleted
+					},
+					function(data,status){
+						console.log(data);
+					});
+				});
+				
+			});
 			//subcategory status change 
 			$(function(){
 				$('.change-subcategory-status').change(function(){
