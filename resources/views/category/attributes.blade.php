@@ -71,7 +71,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a title="Edit" href="{{ URL::to('') }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a onclick="getAttributeData({{ $row->id }})" title="Edit" href="javascript://" class="btn btn-primary shadow btn-xs sharp me-1" data-bs-toggle="modal" data-bs-target="#attributeEditModal"><i class="fas fa-pencil-alt"></i></a>
                                             <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Attribute Value?')) location.href='{{ URL::to('attribute-value-delete/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
@@ -86,6 +86,24 @@
                                 {!! $attribute_values->links() !!}
                             </ul>
                         </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="attributeEditModal">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Attribute</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal">
+                            </button>
+                        </div>
+                        <div id="attribute-body" class="modal-body">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>

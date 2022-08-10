@@ -60,4 +60,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::post('/roll-back-attribute-value','roll_back_attribute_value');
     Route::post('/roll-back-subcategory-status','roll_back_subcategory_status');
     Route::post('/roll-back-category-status','roll_back_category_status');
+    Route::get('/get-attribute-for-edit/{id?}','get_attribute_for_edit');
 });

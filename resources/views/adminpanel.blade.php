@@ -490,11 +490,21 @@
 							status: status
 						},
 						function(data, status){
-							//alert("Data: " + data + "\nStatus: " + status);
+							//data = JSON.parse(data);
+							
 						});
 					
 				});
 			});
+			function getAttributeData(x){
+				if(x===""){
+					return false;
+				}
+				$.get("{{ URL::to('get-attribute-for-edit') }}/"+x,function(data,status){
+					console.log(data);
+					$("#attribute-body").html(data['result']['val']);
+				});
+			}
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
