@@ -329,7 +329,11 @@ class CategoryController extends Controller{
         $select .= '<h4 class="card-title">Select Main Attribute</h4>';
         $select .= '<select id="main_attribute" name="main_attribute" class="default-select form-control wide mb-3">';
         foreach($attributes as $attribute){
-            $select .= '<option '.($getAttributeValue->id==$attribute->attribute_id)?"selected":"".' value="'.$attribute->id.'">'.$attribute->name.'</option>';
+            if($attribute->id==$getAttributeValue->attribute_id){
+                $select .= '<option selected value="'.$attribute->id.'">'.$attribute->name.'</option>';
+            }else{
+                $select .= '<option value="'.$attribute->id.'">'.$attribute->name.'</option>';
+            }
         }
         $select .= '</select><br>';
         $select .= '<h4 class="card-title">Attribute Value</h4>';
@@ -339,6 +343,25 @@ class CategoryController extends Controller{
             'val'=>$select
         );
         return response()->json($data,200);
+    }
+    //edit attribute post 
+    public function get_attribute_for_edit_post(Request $request){
+        $attribute_value_id = $request->input('attribute_value_id');
+        $attribute_value = AttributeValue::find($attribute_value_id);
+        if(empty($attribute_value)){
+            Session::flash('error','Attribute Value Data Not Found!');
+            return redirect('attributes');
+        }
+        $attribute_value->attribute_id = $request->input('main_attribute');
+        $attribute_value->name = $request->input('attribute_value_name');
+        $attribute_value->save();
+        Session::flash('success','Attribute Data Updated Successfully!');
+        Session::flash('attribue_value_id',$attribute_value->id);
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('attributes');
+        }
     }
     
 }

@@ -3,24 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Category\CategoryController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-//Auth::routes();
-
-//Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/', [App\Http\Controllers\DashboardController::class, 'index']);
 
 Route::get('/login', [App\Http\Controllers\LoginController::class, 'admin_login']);
@@ -61,4 +44,5 @@ Route::controller(CategoryController::class)->group(function() {
     Route::post('/roll-back-subcategory-status','roll_back_subcategory_status');
     Route::post('/roll-back-category-status','roll_back_category_status');
     Route::get('/get-attribute-for-edit/{id?}','get_attribute_for_edit');
+    Route::post('/get-attribute-for-edit-post','get_attribute_for_edit_post');
 });
