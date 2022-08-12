@@ -311,6 +311,16 @@
 							<li class="{{ (!empty($deleted_items) && $deleted_items==true)?'mm-active':'' }}"><a class="{{ (!empty($deleted_items) && $deleted_items==true)?'mm-active':'' }}" href="{{ URL::to('deleted-items') }}">Deleted Items</a></li>
                         </ul>
                     </li>
+					<!--product list-->
+					<li class="{{ (!empty($products) && $products==true)?'mm-active':'' }}"><a class="has-arrow ai-icon" href="javascript:void()" aria-expanded="false">
+						<i class="flaticon-025-users"></i>
+							<span class="nav-text">Products</span>
+						</a>
+                        <ul aria-expanded="false" class="{{ (!empty($products) && $products==true)?'mm-collapse mm-show':'' }}">
+                            <li class="{{ (!empty($create_product) && $create_product==true)?'mm-active':'' }}"><a class="{{ (!empty($create_product) && $create_product==true)?'mm-active':'' }}" href="{{ URL::to('create-product') }}">Create Product</a></li>
+							<li class="{{ (!empty($all_product) && $all_product==true)?'mm-active':'' }}"><a class="{{ (!empty($all_product) && $all_product==true)?'mm-active':'' }}" href="{{ URL::to('products') }}">All Product</a></li>
+                        </ul>
+                    </li>
                 </ul>
 			</div>
         </div>
@@ -336,6 +346,7 @@
     <script src="{{ URL::to('public/backend/js/custom.min.js ') }}"></script>
 	<script src="{{ URL::to('public/backend/js/dlabnav-init.js ') }}"></script>
 	<script src="{{ URL::to('public/backend/js/demo.js ') }}"></script>
+	<script src="{{ URL::to('public/backend/vendor/ckeditor/ckeditor.js ') }}"></script>
     <!--<script src="{{ URL::to('public/backend/js/styleSwitcher.js ') }}"></script>-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -490,11 +501,21 @@
 							status: status
 						},
 						function(data, status){
-							//alert("Data: " + data + "\nStatus: " + status);
+							//data = JSON.parse(data);
+							
 						});
 					
 				});
 			});
+			function getAttributeData(x){
+				if(x===""){
+					return false;
+				}
+				$.get("{{ URL::to('get-attribute-for-edit') }}/"+x,function(data,status){
+					console.log(data);
+					$("#attribute-body").html(data['result']['val']);
+				});
+			}
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {

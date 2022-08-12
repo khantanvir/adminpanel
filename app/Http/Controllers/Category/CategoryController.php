@@ -313,5 +313,55 @@ class CategoryController extends Controller{
         );
         return response()->json($data,200);
     }
+    //get attribute data for edit
+    public function get_attribute_for_edit($id=NULL){
+        $getAttributeValue = AttributeValue::find($id);
+        if(empty($getAttributeValue)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'attribute value not found!'
+            );
+            return response()->json($data,200);
+        }
+        $attributes = Attribute::all();
+        $select = "";
+        $select .= '<input type="hidden" id="attribute_value_id" name="attribute_value_id" value="'.$getAttributeValue->id.'">';
+        $select .= '<h4 class="card-title">Select Main Attribute</h4>';
+        $select .= '<select id="main_attribute" name="main_attribute" class="default-select form-control wide mb-3">';
+        foreach($attributes as $attribute){
+            if($attribute->id==$getAttributeValue->attribute_id){
+                $select .= '<option selected value="'.$attribute->id.'">'.$attribute->name.'</option>';
+            }else{
+                $select .= '<option value="'.$attribute->id.'">'.$attribute->name.'</option>';
+            }
+        }
+        $select .= '</select><br>';
+        $select .= '<h4 class="card-title">Attribute Value</h4>';
+        $select .= '<input value="'.$getAttributeValue->name.'" name="attribute_value_name" id="attribute_value_name" class="form-control" type="text">';
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>$select
+        );
+        return response()->json($data,200);
+    }
+    //edit attribute post 
+    public function get_attribute_for_edit_post(Request $request){
+        $attribute_value_id = $request->input('attribute_value_id');
+        $attribute_value = AttributeValue::find($attribute_value_id);
+        if(empty($attribute_value)){
+            Session::flash('error','Attribute Value Data Not Found!');
+            return redirect('attributes');
+        }
+        $attribute_value->attribute_id = $request->input('main_attribute');
+        $attribute_value->name = $request->input('attribute_value_name');
+        $attribute_value->save();
+        Session::flash('success','Attribute Data Updated Successfully!');
+        Session::flash('attribue_value_id',$attribute_value->id);
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('attributes');
+        }
+    }
     
 }

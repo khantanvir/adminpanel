@@ -10,7 +10,6 @@ class AttributeValue extends Model
 {
     use HasFactory;
     protected $table = "attribute_values";
-    public $timestamps = false;
 
     public function attribute(){
         return $this->belongsTo(Attribute::class);
