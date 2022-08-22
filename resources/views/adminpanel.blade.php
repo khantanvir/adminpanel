@@ -19,12 +19,12 @@
 	<title>{{ (!empty($page_title))?$page_title:'' }}</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="{{ URL::to('public/backend/images/favicon.png') }}">
+	<link rel="shortcut icon" type="image/png" href="{{ asset('backend/images/favicon.png') }}">
 	
-	<link href="{{ URL::to('public/backend/vendor/jquery-nice-select/css/nice-select.css ') }}" rel="stylesheet">
-	<link rel="stylesheet" href="{{ URL::to('public/backend/vendor/nouislider/nouislider.min.css ') }}">
+	<link href="{{ asset('backend/vendor/jquery-nice-select/css/nice-select.css ') }}" rel="stylesheet">
+	<link rel="stylesheet" href="{{ asset('backend/vendor/nouislider/nouislider.min.css ') }}">
 	<!-- Style css -->
-    <link href="{{ URL::to('public/backend/css/style.css ') }}" rel="stylesheet">
+    <link href="{{ asset('backend/css/style.css ') }}" rel="stylesheet">
 	
 	
 </head>
@@ -168,7 +168,7 @@
 											<li>
 												<div class="timeline-panel">
 													<div class="media me-2">
-														<img alt="image" width="50" src="{{ URL::to('public/backend/images/avatar/1.jpg') }}">
+														<img alt="image" width="50" src="{{ asset('backend/images/avatar/1.jpg') }}">
 													</div>
 													<div class="media-body">
 														<h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -201,7 +201,7 @@
 											 <li>
 												<div class="timeline-panel">
 													<div class="media me-2">
-														<img alt="image" width="50" src="{{ URL::to('public/backend/images/avatar/1.jpg') }}">
+														<img alt="image" width="50" src="{{ asset('backend/images/avatar/1.jpg') }}">
 													</div>
 													<div class="media-body">
 														<h6 class="mb-1">Dr sultads Send you Photo</h6>
@@ -251,7 +251,7 @@
 					@if(Auth::check())
 					<li class="dropdown header-profile">
 						<a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
-							<img src="{{ URL::to('public/backend/images/profile/pic1.jpg') }}" width="20" alt="">
+							<img src="{{ asset('backend/images/profile/pic1.jpg') }}" width="20" alt="">
 							<div class="header-info ms-3">
 								<span class="font-w600 ">Hi,<b>{{ Auth::user()->name }}</b></span>
 								<small class="text-end font-w400">{{ Auth::user()->email }}</small>
@@ -331,23 +331,23 @@
             </div>
         </div>
 	</div>
-    <script src="{{ URL::to('public/backend/vendor/global/global.min.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/vendor/chart.js/Chart.bundle.min.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/vendor/jquery-nice-select/js/jquery.nice-select.min.js ') }}"></script>
+    <script src="{{ asset('backend/vendor/global/global.min.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/chart.js/Chart.bundle.min.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/jquery-nice-select/js/jquery.nice-select.min.js ') }}"></script>
 	
 	<!-- Apex Chart -->
-	<script src="{{ URL::to('public/backend/vendor/apexchart/apexchart.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/vendor/nouislider/nouislider.min.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/vendor/wnumb/wNumb.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/apexchart/apexchart.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/nouislider/nouislider.min.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/wnumb/wNumb.js ') }}"></script>
 	
 	<!-- Dashboard 1 -->
-	<script src="{{ URL::to('public/backend/js/dashboard/dashboard-1.js ') }}"></script>
+	<script src="{{ asset('backend/js/dashboard/dashboard-1.js ') }}"></script>
 
-    <script src="{{ URL::to('public/backend/js/custom.min.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/js/dlabnav-init.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/js/demo.js ') }}"></script>
-	<script src="{{ URL::to('public/backend/vendor/ckeditor/ckeditor.js ') }}"></script>
-    <!--<script src="{{ URL::to('public/backend/js/styleSwitcher.js ') }}"></script>-->
+    <script src="{{ asset('backend/js/custom.min.js ') }}"></script>
+	<script src="{{ asset('backend/js/dlabnav-init.js ') }}"></script>
+	<script src="{{ asset('backend/js/demo.js ') }}"></script>
+	<script src="{{ asset('backend/vendor/ckeditor/ckeditor.js ') }}"></script>
+    <!--<script src="{{ asset('backend/js/styleSwitcher.js ') }}"></script>-->
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
