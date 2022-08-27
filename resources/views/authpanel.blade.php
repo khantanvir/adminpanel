@@ -19,8 +19,8 @@
 	<title>{{ (!empty($page_title))?$page_title:'' }}</title>
 	
 	<!-- FAVICONS ICON -->
-	<link rel="shortcut icon" type="image/png" href="{{ URL::to('public/backend/images/favicon.png' ) }}">
-    <link href="{{ URL::to('public/backend/css/style.css') }}" rel="stylesheet">
+	<link rel="shortcut icon" type="image/png" href="{{ asset('backend/images/favicon.png' ) }}">
+    <link href="{{ asset('backend/css/style.css') }}" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
@@ -33,9 +33,9 @@
             @yield('authpanel')
         </div>
     </div>
-<script src="{{ URL::to('public/backend/vendor/global/global.min.js' ) }}"></script>
-<script src="{{ URL::to('public/backend/js/custom.min.js' ) }}"></script>
-<script src="{{ URL::to('public/backend/js/dlabnav-init.js' ) }}"></script>
+<script src="{{ asset('backend/vendor/global/global.min.js' ) }}"></script>
+<script src="{{ asset('backend/js/custom.min.js' ) }}"></script>
+<script src="{{ asset('backend/js/dlabnav-init.js' ) }}"></script>
 <script>
 	@if(Session::has('success'))
 	toastr.options =
