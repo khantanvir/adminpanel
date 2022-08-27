@@ -3,8 +3,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" integrity="sha512-hievggED+/IcfxhYRSr4Auo1jbiOczpqpLZwfTVL/6hFACdbI3WQ8S9NCX50gsM9QVE+zLk/8wb9TlgriFbX+Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <div class="content-body">
     <div class="container-fluid">
-        <div class="col-md-12">
-            <div class="card col-md-8">
+        <div class="col-12">
+            <div class="card col-6">
                 <div class="card-header">
                     <h4 class="card-title">Add Attributes</h4>
                 </div>
@@ -44,7 +44,7 @@
                     </div>
                 </form>  
             </div>
-            <div class="card">
+            <div class="card col-12">
                 <div class="card-header">
                     <h4 class="card-title">Attribute Value List</h4>
                 </div>

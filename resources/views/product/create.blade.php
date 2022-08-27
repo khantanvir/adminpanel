@@ -168,8 +168,24 @@
                                             <div class="mb-3 col-2">
                                                 <div class="align-items-center">
                                                     <div class="col-auto my-1">
+                                                        <label class="me-sm-2">Vendor Price</label>
+                                                        <input type="text" name="vendor_price[]" value="" class="form-control input-default ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-2">
+                                                <div class="align-items-center">
+                                                    <div class="col-auto my-1">
                                                         <label class="me-sm-2">Stock Price</label>
-                                                        <input type="text" name="stock_price[]" value="" class="form-control input-default ">
+                                                        <input type="text" name="stock_price[]" value="" class="txt-stock-price form-control input-default ">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 col-2">
+                                                <div class="align-items-center">
+                                                    <div class="col-auto my-1">
+                                                        <label class="me-sm-2">Discount</label>
+                                                        <input type="text" data-mask='' name="discount[]" value="" class="txt-discount form-control input-default ">
                                                     </div>
                                                 </div>
                                             </div>
