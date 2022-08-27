@@ -238,7 +238,7 @@ class CategoryController extends Controller{
         $data['current'] = URL::full();
         Session::put('current_url',$data['current']);
         $data['attribute_list'] = Attribute::all();
-        $data['attribute_values'] = AttributeValue::where('is_deleted',0)->paginate(2);
+        $data['attribute_values'] = AttributeValue::where('is_deleted',0)->paginate(10);
         return view('category/attributes',$data);
     }
     //store attribute
