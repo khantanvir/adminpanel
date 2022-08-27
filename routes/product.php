@@ -8,7 +8,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('/products', 'products');
     Route::get('/create-product', 'create_product');
     Route::post('/store-product', 'store_product');
-    
+    Route::get('/get-subcategory/{id?}','get_subcategory');
 });
 
 ?>
