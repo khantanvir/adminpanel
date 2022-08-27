@@ -516,6 +516,19 @@
 					$("#attribute-body").html(data['result']['val']);
 				});
 			}
+			function getSubcategory(){
+				var category_id = $('#select_category_id').val();
+				alert(category_id);
+				$.get("{{ URL::to('get-subcategory') }}/"+category_id,function(data,status){
+					if(data['result']['key']===101){
+						alert(data['result']['val']);
+					}
+					if(data['result']['key']===200){
+						console.log(data['result']['val']);
+						$('#select_subcategory_id').html(data['result']['val']);
+					}
+				});
+			}
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {
