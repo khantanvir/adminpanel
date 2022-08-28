@@ -594,13 +594,14 @@
 				});
 			</script>
 			<script>
-				$(document).ready(function(){
-					$('.txt-discount').each(function() {
-						$(this).on('keypress',function(){
+				$(function(){
+					$('.txt-discount').each(function(e) {
+						$(this).change(function(){
 							alert($(this).val());
 						});
-        			});
-				});
+					})
+				})
+				
 			</script>
 </body>
 </html>
