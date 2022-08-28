@@ -185,7 +185,7 @@
                                                 <div class="align-items-center">
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Discount</label>
-                                                        <input type="text" data-mask='' name="discount[]" value="444" class="txt-discount form-control input-default ">
+                                                        <input type="text" data-mask='' name="discount[]" value="444" onchange="getData()" class="txt-discount form-control input-default ">
                                                     </div>
                                                 </div>
                                             </div>
