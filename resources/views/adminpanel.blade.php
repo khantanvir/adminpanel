@@ -583,7 +583,7 @@
 						e.preventDefault();
 						if(cnt < max){
 							cnt++;
-							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_large_images[]" class="form-file-input form-control" /></div><br><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
+							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_zoom_images[]" class="form-file-input form-control" /></div><br><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
 						}
 					});
 					

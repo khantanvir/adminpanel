@@ -192,7 +192,7 @@
                                                 <div class="align-items-center">
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Selling Price</label>
-                                                        <input type="text" name="stock_price[]" value="" class="form-control input-default ">
+                                                        <input type="text" name="selling_price[]" value="" class="form-control input-default ">
                                                         @if ($errors->has('selling_price'))
                                                             <span class="text-danger">{{ $errors->first('selling_price') }}</span>
                                                         @endif
@@ -217,7 +217,7 @@
                                         <div class="input-wrapper-img">
                                             <h4 class="card-title">More Images</h4>
                                             <div class="input-group">
-                                                <input type="file" name="more_large_images[]" class="form-file-input form-control" />
+                                                <input type="file" name="more_zoom_images[]" class="form-file-input form-control" />
                                             </div><br>
                                             <div class="col-8 input-group">
                                                 <input type="file" name="more_images[]" class="form-file-input form-control" />
