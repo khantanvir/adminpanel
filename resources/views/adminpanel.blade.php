@@ -583,10 +583,10 @@
 						e.preventDefault();
 						if(cnt < max){
 							cnt++;
-							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
+							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_large_images[]" class="form-file-input form-control" /></div><br><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
 						}
 					});
-				   
+					
 					$(".textbox-wrapper-img").on("click",".remove-textbox-img", function(e){
 						e.preventDefault();
 						$(this).parents(".input-wrapper-img").remove();
@@ -594,12 +594,6 @@
 					});
 					
 				});
-			</script>
-			<script type="text/javascript">
-				function getData(){
-					var getVal = document.getElementsByClassName('txt-discount');
-					alert(getVal[0].value);
-				}
 			</script>
 </body>
 </html>
