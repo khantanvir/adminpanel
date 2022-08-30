@@ -29,8 +29,7 @@ class ProductController extends Controller
         $data['create_product'] = true;
         $data['categories'] = Category::where('status',0)->where('is_deleted',0)->get();
         $data['all_attribute'] = Attribute::where('status',0)->where('is_deleted',0)->get();
-        $data['vendor_users'] = User::with('role')->get();
-        dd($data['vendor_users']);
+        $data['vendor_users'] = User::where('role_id',5)->get();
         return view('product/create',$data);
     }
     //store product 
@@ -41,6 +40,7 @@ class ProductController extends Controller
         $product->subcategory_id = $request->input('subcategory');
         $product->short_description = $request->input('short_description');
         $product->description = $request->input('description');
+        $product->vendor_id = $request->input('vendor_id');
         //create url
         $url_modify = Service::slug_create($request->input('title'));
         $checkSlug = Product::where('url', 'LIKE', '%' . $url_modify . '%')->count();
@@ -57,7 +57,7 @@ class ProductController extends Controller
             
             $ext = $image->getClientOriginalExtension();
             $filename = $image->getClientOriginalName();
-            $filename = rand(1000,100000).'.'.$ext;
+            $filename = Service::slug_create($filename).rand(1,9).'.'.$ext;
             $image_resize = Image::make($image->getRealPath());
             $image_resize->resize(450,600);
             $image_resize->save(public_path('main/image/' .$filename));
@@ -152,7 +152,7 @@ class ProductController extends Controller
         }
         $getSubCategories = Subcategory::where('category_id',$getCategory->id)->get();
         $select = "";
-        $select .= '<select id="" name="subcategory_id" class="default-select form-control wide mb-3">';
+        $select .= '<select id="" name="subcategory" class="default-select form-control wide mb-3">';
         $select .= '<option>--Select Subcategory--</option>';
         foreach($getSubCategories as $row){
             $select .= '<option value="'.$row->id.'">'.$row->title.'</option>';

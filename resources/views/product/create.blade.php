@@ -30,8 +30,8 @@
                                 <div class="mb-3">
                                     <select name="vendor_id" class="default-select form-control wide mb-3">
                                         <option>...Choose...</option>
-                                        @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @foreach($vendor_users as $vendor)
+                                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
                                         @endforeach
                                     </select>
                                 </div><br>
@@ -81,7 +81,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_s_m_l[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -96,7 +96,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_xl_xs[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -111,7 +111,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_30_32[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -126,7 +126,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_color[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -141,7 +141,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_design[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -156,7 +156,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_weight[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
