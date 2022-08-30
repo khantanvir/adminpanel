@@ -519,7 +519,6 @@
 			}
 			function getSubcategory(){
 				var category_id = $('#select_category_id').val();
-				alert(category_id);
 				$.get("{{ URL::to('get-subcategory') }}/"+category_id,function(data,status){
 					if(data['result']['key']===101){
 						alert(data['result']['val']);

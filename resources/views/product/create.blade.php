@@ -26,28 +26,37 @@
                                         <span class="text-danger">{{ $errors->first('short_description') }}</span>
                                     @endif
                                 </div><br>
+                                <h5 class="card-title">Vendor</h5>
+                                <div class="mb-3">
+                                    <select name="vendor_id" class="default-select form-control wide mb-3">
+                                        <option>...Choose...</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </div><br>
                                 <h5 class="card-title">Category</h5>
                                 <div class="mb-3">
-                                    <select onchange="getSubcategory()" name="category_id" id="select_category_id" class="default-select form-control wide mb-3">
+                                    <select onchange="getSubcategory()" name="category" id="select_category_id" class="default-select form-control wide mb-3">
                                         <option selected="">Choose...</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->title }}</option>
                                         @endforeach
                                     </select>
-                                    @if ($errors->has('category_id'))
-                                        <span class="text-danger">{{ $errors->first('category_id') }}</span>
+                                    @if ($errors->has('category'))
+                                        <span class="text-danger">{{ $errors->first('category') }}</span>
                                     @endif
                                 </div><br>
                                 <h5 class="card-title">Subcategory</h5>
                                 <div class="mb-3">
                                     <div id="select_subcategory_id">
-                                        <select id="" name="subcategory_id" class="default-select form-control wide mb-3">
+                                        <select id="" name="subcategory" class="default-select form-control wide mb-3">
                                             <option selected="">--Select Category First--</option>
                                         </select>
+                                        @if($errors->has('subcategory'))
+                                            <span class="text-danger">{{ $errors->first('subcategory') }}</span>
+                                        @endif
                                     </div>
-                                    @if ($errors->has('subcategory_id'))
-                                        <span class="text-danger">{{ $errors->first('subcategory_id') }}</span>
-                                    @endif
                                 </div><br>
                                 <h5 class="card-title">Description</h5>
                                 <div class="mb-3">

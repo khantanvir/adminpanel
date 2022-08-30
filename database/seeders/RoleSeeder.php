@@ -15,7 +15,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $str = 'admin,support,user,agent';
+        $str = 'admin,support,user,agent,vendor';
         $arr = explode(',',$str);
         foreach($arr as $row){
             Role::create([

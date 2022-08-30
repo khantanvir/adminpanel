@@ -13,6 +13,7 @@ use App\Models\Product\ProductAttribute;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
 
@@ -28,14 +29,16 @@ class ProductController extends Controller
         $data['create_product'] = true;
         $data['categories'] = Category::where('status',0)->where('is_deleted',0)->get();
         $data['all_attribute'] = Attribute::where('status',0)->where('is_deleted',0)->get();
+        $data['vendor_users'] = User::with('role')->get();
+        dd($data['vendor_users']);
         return view('product/create',$data);
     }
     //store product 
     public function store(ProductRequest $request){
         $product = new Product();
         $product->title = $request->input('title');
-        $product->category_id = $request->input('category_id');
-        $product->subcategory_id = $request->input('subcategory_id');
+        $product->category_id = $request->input('category');
+        $product->subcategory_id = $request->input('subcategory');
         $product->short_description = $request->input('short_description');
         $product->description = $request->input('description');
         //create url
@@ -123,6 +126,7 @@ class ProductController extends Controller
                 $productAttribute->attribute_design = $attribute_design[$key];
                 $productAttribute->attribute_weight = $attribute_weight[$key];
                 $productAttribute->quantity = $quantityRow;
+                $productAttribute->product_id = $product->id;
                 $productAttribute->vendor_price = $vendor_price[$key];
                 $productAttribute->stock_price = $stock_price[$key];
                 $productAttribute->selling_price = $selling_price[$key];
