@@ -35,8 +35,8 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            <a title="Edit" href="{{ URL::to('product-edit/'.$row->id) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Category Data?')) location.href='{{ URL::to('product-delete/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                            <a title="Edit" href="{{ URL::to('edit-product/'.$row->id) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Product Data?')) location.href='{{ URL::to('delete-product/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
