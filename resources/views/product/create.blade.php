@@ -26,28 +26,37 @@
                                         <span class="text-danger">{{ $errors->first('short_description') }}</span>
                                     @endif
                                 </div><br>
+                                <h5 class="card-title">Vendor</h5>
+                                <div class="mb-3">
+                                    <select name="vendor_id" class="default-select form-control wide mb-3">
+                                        <option>...Choose...</option>
+                                        @foreach($vendor_users as $vendor)
+                                            <option value="{{ $vendor->id }}">{{ $vendor->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div><br>
                                 <h5 class="card-title">Category</h5>
                                 <div class="mb-3">
-                                    <select onchange="getSubcategory()" name="category_id" id="select_category_id" class="default-select form-control wide mb-3">
+                                    <select onchange="getSubcategory()" name="category" id="select_category_id" class="default-select form-control wide mb-3">
                                         <option selected="">Choose...</option>
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->title }}</option>
                                         @endforeach
                                     </select>
-                                    @if ($errors->has('category_id'))
-                                        <span class="text-danger">{{ $errors->first('category_id') }}</span>
+                                    @if ($errors->has('category'))
+                                        <span class="text-danger">{{ $errors->first('category') }}</span>
                                     @endif
                                 </div><br>
                                 <h5 class="card-title">Subcategory</h5>
                                 <div class="mb-3">
                                     <div id="select_subcategory_id">
-                                        <select id="" name="subcategory_id" class="default-select form-control wide mb-3">
+                                        <select id="" name="subcategory" class="default-select form-control wide mb-3">
                                             <option selected="">--Select Category First--</option>
                                         </select>
+                                        @if($errors->has('subcategory'))
+                                            <span class="text-danger">{{ $errors->first('subcategory') }}</span>
+                                        @endif
                                     </div>
-                                    @if ($errors->has('subcategory_id'))
-                                        <span class="text-danger">{{ $errors->first('subcategory_id') }}</span>
-                                    @endif
                                 </div><br>
                                 <h5 class="card-title">Description</h5>
                                 <div class="mb-3">
@@ -72,7 +81,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_s_m_l[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -87,7 +96,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_xl_xs[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -102,7 +111,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_size_30_32[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -117,7 +126,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_color[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -132,7 +141,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_design[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -147,7 +156,7 @@
                                                         <label class="me-sm-2">{{ $attributes->name }}</label>
                                                         <input type="hidden" name="main_attribute_id[]" value="{{ $attributes->id }}">
                                                         <select name="attribute_weight[]" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">
-                                                            <option selected="">Choose...</option>
+                                                            <option></option>
                                                             @foreach ($attributes->attribute_value as $attr_value)
                                                                 <option value="{{ $attr_value->name }}">{{ $attr_value->name }}</option>
                                                             @endforeach
@@ -192,7 +201,7 @@
                                                 <div class="align-items-center">
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Selling Price</label>
-                                                        <input type="text" name="stock_price[]" value="" class="form-control input-default ">
+                                                        <input type="text" name="selling_price[]" value="" class="form-control input-default ">
                                                         @if ($errors->has('selling_price'))
                                                             <span class="text-danger">{{ $errors->first('selling_price') }}</span>
                                                         @endif
@@ -217,7 +226,7 @@
                                         <div class="input-wrapper-img">
                                             <h4 class="card-title">More Images</h4>
                                             <div class="input-group">
-                                                <input type="file" name="more_large_images[]" class="form-file-input form-control" />
+                                                <input type="file" name="more_zoom_images[]" class="form-file-input form-control" />
                                             </div><br>
                                             <div class="col-8 input-group">
                                                 <input type="file" name="more_images[]" class="form-file-input form-control" />

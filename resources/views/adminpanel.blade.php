@@ -507,6 +507,26 @@
 					
 				});
 			});
+			//product status change 
+			$(function(){
+				$('.change-product-status').change(function(){
+					var status = $(this).prop('checked') == true ? 0 : 1;
+					var product_id = $(this).data('id');
+						$.post('{{ URL::to('product-status-change') }}',
+						{
+							product_id: product_id,
+							status: status
+						},
+						function(data, status){
+							
+						});
+					
+				});
+			});
+			//change main image for product page 
+			function change_main_image(x){
+				$('#product_id').val(x);
+			}
 			
 			function getAttributeData(x){
 				if(x===""){
@@ -519,7 +539,6 @@
 			}
 			function getSubcategory(){
 				var category_id = $('#select_category_id').val();
-				alert(category_id);
 				$.get("{{ URL::to('get-subcategory') }}/"+category_id,function(data,status){
 					if(data['result']['key']===101){
 						alert(data['result']['val']);
@@ -583,7 +602,7 @@
 						e.preventDefault();
 						if(cnt < max){
 							cnt++;
-							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_large_images[]" class="form-file-input form-control" /></div><br><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
+							$(".textbox-wrapper-img").append('<div class="input-wrapper-img"><div class="input-group"><input type="file" name="more_zoom_images[]" class="form-file-input form-control" /></div><br><div class="input-group"><input type="file" name="more_images[]" class="form-file-input form-control" /><span class="input-group-btn"><button type="button" class="btn btn-danger remove-textbox-img"><i class="glyphicon glyphicon-minus"></i>-</button></span></div><br></div>');
 						}
 					});
 					
