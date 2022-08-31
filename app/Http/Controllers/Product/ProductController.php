@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Helper\Service;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\EditProductRequest;
 use App\Http\Requests\Product\ProductRequest;
 use App\Models\Attributes\Attribute;
 use App\Models\Category\Category;
@@ -223,5 +224,56 @@ class ProductController extends Controller
         $data['current'] = URL::full();
         Session::put('current_url',$data['current']);
         return view('product/all',$data);
+    }
+    //edit page 
+    public function edit($id=NULL){
+        $data['products'] = true;
+        $data['all_product'] = true;
+        $data['get_product'] = Product::find($id);
+        $data['vendors'] = User::where('role_id',5)->get();
+        $data['categories'] = Category::where(['status'=>0,'is_deleted'=>0])->get();
+        $data['subcategories'] = Subcategory::where('category_id',$data['get_product']->category_id)->get();
+        if(empty($data['get_product'])){
+            Session::flash('error','Product Data Not Found!');
+            return redirect('products');
+        }
+        return view('product/edit',$data);
+    }
+    //edit product post 
+    public function edit_product_post(EditProductRequest $request){
+        $product = Product::find($request->input('product_id'));
+        if(empty($product)){
+            Session::flash('error','Product Data Not Found!');
+            return redirect('products');
+        }
+        $product->title = $request->input('title');
+        $product->short_description = $request->input('short_description');
+        $product->vendor_id = $request->input('vendor_id');
+        $product->category_id = $request->input('category');
+        $product->subcategory_id = $request->input('subcategory');
+        $product->description = $request->input('description');
+        $product->save();
+        Session::flash('success','Product Data Updated Successfully!');
+        Session::flash('product_id',$product->id);
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('products');
+        }
+    }
+    //delete product 
+    public function delete_product($id=NULL){
+        $productValue = Product::find($id);
+        if(empty($productValue)){
+            Session::flash('error','Product Data Not Found!');
+            return redirect()->back();
+        }
+        $delete = Product::where('id',$productValue->id)->update(['is_deleted'=>1]);
+        Session::flash('success','Product Data Deleted Successfully!');
+        if(!empty(Session::get('current_url'))){
+            return redirect(Session::get('current_url'));
+        }else{
+            return redirect('products');
+        }
     }
 }

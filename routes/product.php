@@ -11,6 +11,9 @@ Route::controller(ProductController::class)->group(function() {
     Route::get('/get-subcategory/{id?}','get_subcategory');
     Route::post('/product-status-change','product_status_change');
     Route::post('/change-main-image-post','change_main_image_post');
+    Route::get('edit-product/{id?}','edit');
+    Route::post('edit-product-post','edit_product_post');
+    Route::get('delete-product/{id?}','delete_product');
 });
 
 ?>
