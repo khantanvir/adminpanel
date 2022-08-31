@@ -27,8 +27,8 @@ return new class extends Migration
             $table->integer('brand_id')->nullable();
             $table->longText('comments')->nullable();
             $table->double('total_stock')->nullable();
-            $table->tinyInteger('status')->nullable();
-            $table->tinyInteger('is_deleted')->nullable();
+            $table->tinyInteger('status')->default(0)->nullable();
+            $table->tinyInteger('is_deleted')->default(0)->nullable();
             $table->timestamps();
         });
     }

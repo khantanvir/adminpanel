@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Pagination\Paginator;
 
 class ProductController extends Controller
 {
@@ -41,6 +42,8 @@ class ProductController extends Controller
         $product->short_description = $request->input('short_description');
         $product->description = $request->input('description');
         $product->vendor_id = $request->input('vendor_id');
+        $product->status = 0;
+        $product->is_deleted = 0;
         //create url
         $url_modify = Service::slug_create($request->input('title'));
         $checkSlug = Product::where('url', 'LIKE', '%' . $url_modify . '%')->count();
@@ -57,7 +60,7 @@ class ProductController extends Controller
             
             $ext = $image->getClientOriginalExtension();
             $filename = $image->getClientOriginalName();
-            $filename = Service::slug_create($filename).rand(1,9).'.'.$ext;
+            $filename = Service::slug_create($filename).rand(11,99).'.'.$ext;
             $image_resize = Image::make($image->getRealPath());
             $image_resize->resize(450,600);
             $image_resize->save(public_path('main/image/' .$filename));
@@ -73,16 +76,16 @@ class ProductController extends Controller
             foreach($more_images as $key=>$more_image){
                 $ext1 = $more_image->getClientOriginalExtension();
                 $filename1 = $more_image->getClientOriginalName();
-                $filename1 = Service::slug_create($filename1).rand(1,10).'.'.$ext1;
+                $filename1 = Service::slug_create($filename1).rand(111,999).'.'.$ext1;
                 $image_resize1 = Image::make($more_image->getRealPath());
-                $image_resize1->resize(650,820);
+                $image_resize1->resize(450,600);
                 $image_resize1->save(public_path('main/more_images/' .$filename1));
 
                 //zoom image upload
                 if($request->hasFile('more_zoom_images')){
                     $ext2 = $more_zoom_images[$key]->getClientOriginalExtension();
                     $filename2 = $more_zoom_images[$key]->getClientOriginalName();
-                    $filename2 = Service::slug_create($filename2).rand(1,10).'.'.$ext2;
+                    $filename2 = Service::slug_create($filename2).rand(111,9999).'.'.$ext2;
                     $image_resize2 = Image::make($more_zoom_images[$key]->getRealPath());
                     $image_resize2->resize(650,820);
                     $image_resize2->save(public_path('main/more_zoom_images/' .$filename1));
@@ -136,9 +139,28 @@ class ProductController extends Controller
         }
         //update product stock 
         $update = Product::where('id',$product->id)->update(['total_stock'=>$total_quantity]);
-        echo 'Product save';
-        
+        Session::flash('success','Product Data Saved Successfully!');
+        Session::flash('product_id',$product->id);
+        return redirect('products');
 
+    }
+    //product status change 
+    public function product_status_change(Request $request){
+        $product_id = $request->input('product_id');
+        $product = Product::find($product_id);
+        if(empty($product)){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Product Data Not Found!'
+            );
+            return response()->json($data,200);
+        }
+        $update = Product::where('id',$product->id)->update(['status'=>$request->input('status')]);
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>'Product Updated!'
+        );
+        return response()->json($data,200);
     }
     //get subcategory
     public function get_subcategory($id=NULL){
@@ -164,10 +186,42 @@ class ProductController extends Controller
         );
         return response()->json($data,200);
     }
+    //change main image 
+    public function change_main_image_post(Request $request){
+        $product = Product::find($request->input('product_id'));
+        if(empty($product)){
+            Session::flash('error','Product Data Not Found!');
+            return redirect('products');
+        }
+        $image = $request->file('main_image');
+        if($request->hasFile('main_image')){
+            if(file_exists(public_path('main/image/'.$product->image))){
+                unlink(public_path('main/image/'.$product->image));
+            }
+            $ext = $image->getClientOriginalExtension();
+            $filename = $image->getClientOriginalName();
+            $filename = Service::slug_create($filename).rand(11,99).'.'.$ext;
+            $image_resize = Image::make($image->getRealPath());
+            $image_resize->resize(450,600);
+            $image_resize->save(public_path('main/image/' .$filename));
+            $product->image = $filename;
+            $product->save();
+            Session::flash('success','Image Changed Successfully!');
+            Session::flash('product_id',$product->id);
+            if(!empty(Session::get('current_url'))){
+                return redirect(Session::get('current_url'));
+            }else{
+                return redirect('products');
+            }
+        }
+    }
     //all product 
     public function products(){
         $data['products'] = true;
         $data['all_product'] = true;
+        $data['all_product'] = Product::where('status',0)->where('is_deleted',0)->orderBy('id','desc')->paginate(10);
+        $data['current'] = URL::full();
+        Session::put('current_url',$data['current']);
         return view('product/all',$data);
     }
 }

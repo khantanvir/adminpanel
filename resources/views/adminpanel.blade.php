@@ -507,6 +507,26 @@
 					
 				});
 			});
+			//product status change 
+			$(function(){
+				$('.change-product-status').change(function(){
+					var status = $(this).prop('checked') == true ? 0 : 1;
+					var product_id = $(this).data('id');
+						$.post('{{ URL::to('product-status-change') }}',
+						{
+							product_id: product_id,
+							status: status
+						},
+						function(data, status){
+							
+						});
+					
+				});
+			});
+			//change main image for product page 
+			function change_main_image(x){
+				$('#product_id').val(x);
+			}
 			
 			function getAttributeData(x){
 				if(x===""){
