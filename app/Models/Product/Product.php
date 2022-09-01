@@ -11,7 +11,7 @@ class Product extends Model
     use HasFactory;
     protected $table = "products";
 
-    public function product(){
+    public function attribute(){
         return $this->hasMany(ProductAttribute::class);
     }
 }
