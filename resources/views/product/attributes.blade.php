@@ -6,16 +6,16 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">All Product</h4>
+                    <h4 class="card-title">Product Attributes</h4>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-responsive-md">
                             <thead>
                                 <tr>
-                                    <th><strong>Title</strong></th>
-                                    <th><strong>Id</strong></th>
-                                    <th><strong>Discription</strong></th>
+                                    <th><strong>Product Name</strong></th>
+                                    <th><strong>Size</strong></th>
+                                    <th><strong>Color</strong></th>
                                     <th><strong>Image</strong></th>
                                     <th><strong>Quantity</strong></th>
                                     <th><strong>Status</strong></th>

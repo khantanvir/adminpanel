@@ -276,4 +276,15 @@ class ProductController extends Controller
             return redirect('products');
         }
     }
+    //get product attributes 
+    public function product_attributes($id=NULL){
+        $data['products'] = true;
+        $data['all_product'] = true;
+        $data['product_attributes'] = ProductAttribute::where('product_id',$id)->get();
+        if(!$data['products']){
+            Session::flash('error','Product Data Not Found!');
+            return redirect('products');
+        }
+        return view('product/attributes',$data);
+    }
 }
