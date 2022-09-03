@@ -12,6 +12,6 @@ class ProductAttribute extends Model
     protected $table = "product_attributes";
 
     public function main_product(){
-        return $this->belongsTo(Product::class);
+        return $this->belongsTo(Product::class,'product_id');
     }
 }
