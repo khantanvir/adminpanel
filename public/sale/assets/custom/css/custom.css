@@ -1,0 +1,55 @@
+/* .cart-table{
+
+} */
+.search-button{
+    background-color: darkorange;
+    color: white;
+}
+.cart-image{
+    width: 40px;
+}
+.add-button{
+    background-color: darkorange;
+    color: black;
+}
+.add-button:hover{
+    background-color: darkorange;
+    color: white;
+}
+
+.home-button{
+    background-color: darkorange;
+    color: white;
+}
+.category-part{
+    color: darkorange;
+    padding: 5px 10px;
+   
+}
+.category-part:hover{
+    background-color: darkorange;
+    color: white;
+}
+/* .category:active{
+    color: white;
+} */
+.discount-amount{
+    color: darkorange;
+}
+.charge-button{
+    background-color: darkorange;
+    color: black;
+   
+}
+.charge-button:hover{
+    background-color: darkorange;
+    color: white;
+}
+.del-button{
+    background-color: darkorange;
+    color: black;
+}
+.del-button:hover{
+    background-color: darkorange;
+    color: white;
+}

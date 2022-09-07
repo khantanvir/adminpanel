@@ -3,22 +3,22 @@
 <div class="col-md-8 card padding-y-sm card ">
 <ul class="nav bg radius nav-pills nav-fill mb-3 bg" role="tablist">
     <li class="nav-item">
-        <a class="nav-link active show" data-toggle="pill" href="#nav-tab-card">
+        <a class=" active show category-part" data-toggle="pill" href="#nav-tab-card">
         <i class="fa fa-tags"></i> All</a></li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#nav-tab-paypal">
+        <a class="category-part" data-toggle="pill" href="#nav-tab-paypal">
         <i class="fa fa-tags "></i>  Category 1</a></li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+        <a class="category-part" data-toggle="pill" href="#nav-tab-bank">
         <i class="fa fa-tags "></i>  Category 2</a></li>
      <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+        <a class="category-part" data-toggle="pill" href="#nav-tab-bank">
         <i class="fa fa-tags "></i>  Category 3</a></li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+        <a class="category-part" data-toggle="pill" href="#nav-tab-bank">
         <i class="fa fa-tags "></i>  Category 4</a></li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="pill" href="#nav-tab-bank">
+        <a class="category-part" data-toggle="pill" href="#nav-tab-bank">
         <i class="fa fa-tags "></i>  Category 5</a></li>
 </ul>
 <span   id="items">
@@ -31,11 +31,11 @@
             <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
         </div>
         <figcaption class="info-wrap">
-            <a href="#" class="title">Good item name</a>
+            <a href="#" class="title text-dark">Good item name</a>
             <div class="action-wrap">
-                <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+                <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
                 <div class="price-wrap h5">
-                    <span class="price-new">$1280</span>
+                    <span class="price-new text-danger">$1280</span>
                 </div> <!-- price-wrap.// -->
             </div> <!-- action-wrap -->
         </figcaption>
@@ -48,11 +48,11 @@
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">The name of product</a>
+        <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
     </figcaption>
@@ -65,11 +65,11 @@
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">Name of product</a>
+        <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
@@ -83,11 +83,11 @@
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">The name of product</a>
+        <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
     </figcaption>
@@ -103,11 +103,11 @@
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">Good item name</a>
+        <a href="#" class="title text-dark">Good item name</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$1280</span>
+                <span class="price-new text-danger">$1280</span>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
     </figcaption>
@@ -120,11 +120,11 @@
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">The name of product</a>
+        <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
     </figcaption>
@@ -137,11 +137,11 @@
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">Name of product</a>
+        <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
             </div> <!-- price-wrap.// -->
         </div> <!-- action-wrap -->
@@ -155,11 +155,11 @@
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
-        <a href="#" class="title">The name of product</a>
+        <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn btn-primary btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
-                <span class="price-new">$280</span>
+                <span class="price-new text-danger">$280</span>
             </div>
         </div>
     </figcaption>

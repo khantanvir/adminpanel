@@ -14,6 +14,7 @@
 <link href="{{ asset('sale/assets/css/ui.css ') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ asset('sale/assets/fonts/fontawesome/css/fontawesome-all.min.css ') }}" type="text/css" rel="stylesheet">
 <link href="{{ asset('sale/assets/css/OverlayScrollbars.css ') }}" type="text/css" rel="stylesheet"/>
+<link href="{{ asset('sale/assets/custom/css/custom.css ') }}" rel="stylesheet" type="text/css"/>
 <!-- Font awesome 5 -->
 <style>
 	.avatar {
@@ -38,15 +39,15 @@
 	<div class="col-lg-3">
 	<div class="brand-wrap">
 		<img class="logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
-		<h2 class="logo-text">Squanchy POS</h2>
+		<h2 class="logo-text my-text">Squanchy POS</h2>
 	</div> <!-- brand-wrap.// -->
 	</div>
 	<div class="col-lg-6 col-sm-6">
 		<form action="#" class="search-wrap">
 			<div class="input-group">
-			    <input type="text" class="form-control" placeholder="Search">
+			    <input type="text" class="form-control" placeholder="Search Products">
 			    <div class="input-group-append">
-			      <button class="btn btn-primary" type="submit">
+			      <button class="btn search-button" type="submit">
 			        <i class="fa fa-search"></i>
 			      </button>
 			    </div>
@@ -57,7 +58,7 @@
 		<div class="widgets-wrap d-flex justify-content-end">
 			<div class="widget-header">
 				<a href="#" class="icontext">
-					<a href="#" class="btn btn-primary m-btn m-btn--icon m-btn--icon-only">
+					<a href="#" class="btn home-button m-btn m-btn--icon m-btn--icon-only">
 															<i class="fa fa-home"></i>
 														</a>
 				</a>
@@ -83,7 +84,7 @@
 	<div class="col-md-4">
 <div class="card">
 	<span id="cart">
-<table class="table table-hover shopping-cart-wrap">
+<table class="table cart-table table-hover">
 <thead class="text-muted">
 <tr>
   <th scope="col">Item</th>
@@ -96,7 +97,7 @@
 <tr>
 	<td>
 <figure class="media">
-	<div class="img-wrap"><img src="{{ asset('sale/assets/images/items/1.jpg') }}" class="img-thumbnail img-xs"></div>
+	<div class="img-wrap cart-image"><img src="{{ asset('sale/assets/images/items/1.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name </h6>
 	</figcaption>
@@ -111,11 +112,11 @@
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$145</var> 
+			<var class="price text-dark">$145</var> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a href="" class="btn btn-outline-danger"> <i class="fa fa-trash"></i></a>
+	<a href="" class="btn del-button"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 <tr>
@@ -132,15 +133,15 @@
 																		<button type="button" class="m-btn btn btn-default"><i class="fa fa-minus"></i></button>
 																		<button type="button" class="m-btn btn btn-default" disabled>1</button>
 																		<button type="button" class="m-btn btn btn-default"><i class="fa fa-plus"></i></button>
-																	</div>
+										</div>
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$35</var> 
+			<var class="price text-dark">$35</var> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-	<a href="" class="btn btn-outline-danger btn-round"> <i class="fa fa-trash"></i></a>
+	<a href="" class="btn del-button btn-round"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 <tr>
@@ -161,11 +162,11 @@
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$45</var> 
+			<var class="price text-dark">$45</var> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-		<a href="" class="btn btn-outline-danger btn-round"> <i class="fa fa-trash"></i></a>
+		<a href="" class="btn del-button btn-round"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 <tr>
@@ -186,11 +187,11 @@
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$45</var> 
+			<var class="price text-dark">$45</var> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-		<a href="" class="btn btn-outline-danger btn-round"> <i class="fa fa-trash"></i></a>
+		<a href="" class="btn del-button btn-round"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 <tr>
@@ -211,11 +212,11 @@
 	</td>
 	<td> 
 		<div class="price-wrap"> 
-			<var class="price">$45</var> 
+			<var class="price text-dark">$45</var> 
 		</div> <!-- price-wrap .// -->
 	</td>
 	<td class="text-right"> 
-		<a href="" class="btn btn-outline-danger btn-round"> <i class="fa fa-trash"></i></a>
+		<a href="" class="btn del-button btn-round"> <i class="fa fa-trash"></i></a>
 	</td>
 </tr>
 </tbody>
@@ -229,7 +230,7 @@
 </dl>
 <dl class="dlist-align">
   <dt>Discount:</dt>
-  <dd class="text-right"><a href="#">0%</a></dd>
+  <dd class="text-right"><a class="discount-amount" href="#">0%</a></dd>
 </dl>
 <dl class="dlist-align">
   <dt>Sub Total:</dt>
@@ -237,14 +238,14 @@
 </dl>
 <dl class="dlist-align">
   <dt>Total: </dt>
-  <dd class="text-right h4 b"> $215 </dd>
+  <dd class="text-right h4 b text-danger"> $215 </dd>
 </dl>
 <div class="row">
 	<div class="col-md-6">
 		<a href="#" class="btn  btn-default btn-error btn-lg btn-block"><i class="fa fa-times-circle "></i> Cancel </a>
 	</div>
 	<div class="col-md-6">
-		<a href="#" class="btn  btn-primary btn-lg btn-block"><i class="fa fa-shopping-bag"></i> Charge </a>
+		<a href="#" class="btn charge-button  btn-lg btn-block"><i class="fa fa-shopping-bag"></i> Charge </a>
 	</div>
 </div>
 </div> <!-- box.// -->
