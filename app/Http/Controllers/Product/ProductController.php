@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Product;
 
 use App\Helper\Service;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Product\EditProductAttributeRequest;
 use App\Http\Requests\Product\EditProductRequest;
 use App\Http\Requests\Product\ProductRequest;
 use App\Models\Attributes\Attribute;
@@ -134,6 +135,8 @@ class ProductController extends Controller
                 $productAttribute->vendor_price = $vendor_price[$key];
                 $productAttribute->stock_price = $stock_price[$key];
                 $productAttribute->selling_price = $selling_price[$key];
+                $productAttribute->status = 0;
+                $productAttribute->is_deleted = 0;
                 $total_quantity += $quantityRow;
                 $productAttribute->save();
             }
@@ -287,4 +290,220 @@ class ProductController extends Controller
         }
         return view('product/attributes',$data);
     }
+    //get product attribute for edit
+    public function get_product_attribute_for_edit($id=NULL){
+        $getAttribute = ProductAttribute::find($id);
+        if(!$getAttribute){
+            $data['result'] = array(
+                'key'=>101,
+                'val'=>'Product Attribute not found'
+            );
+            return response()->json($data,200);
+        }
+        $all_attribute = Attribute::where('status',0)->where('is_deleted',0)->get();
+        $select = '';
+        $select .= '<div class="mb-3 col-auto my-1 align-items-center">';
+        $select .= '<h4>Edit Product Attribute</h4>';
+        $select .= '</div>';
+        foreach($all_attribute as $key=>$attributes){
+            if($attributes->name=="size(s/m/l)"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_size_s_m_l" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_size){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }elseif($attributes->name=="size(xl/xs)"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_size_xl_xs" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_size){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }elseif($attributes->name=="size(30/32/34)"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_size_30_32" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_size){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }elseif($attributes->name=="color"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_color" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_color){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }elseif($attributes->name=="design"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_color" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_design){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }elseif($attributes->name=="weight"){
+                $select .= '<div class="mb-3">';
+                    $select .= '<div class="align-items-center">';
+                        $select .= '<div class="col-auto my-1">';
+                        $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
+                            $select .= '<select name="attribute_weight" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<option></option>';
+                            foreach($attributes->attribute_value as $attr_value){
+                                if($attr_value->name==$getAttribute->attribute_weight){
+                                    $select .= '<option selected value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }else{
+                                    $select .= '<option value="'.$attr_value->name.'">'.$attr_value->name.'</option>';
+                                }
+                            }
+                            $select .= '</select>';
+                        $select .= '</div>';
+                    $select .= '</div';
+                $select .= '</div>';
+                $select .= '<br>';
+            }
+        }
+        $select .= '<div class="mb-3">';
+            $select .= '<div class="align-items-center">';
+                $select .= '<div class="col-auto my-1">';
+                    $select .= '<h5 class="me-sm-2">Quantity</h5>';
+                    $select .= '<input type="text" name="quantity" value="'.$getAttribute->quantity.'" class="form-control input-default ">';
+                $select .= '</div>';
+            $select .= '</div>';
+        $select .= '</div>';
+        $select .= '<br>';
+
+        $select .= '<div class="mb-3">';
+            $select .= '<div class="align-items-center">';
+                $select .= '<div class="col-auto my-1">';
+                    $select .= '<h5 class="me-sm-2">Vendor Price</h5>';
+                    $select .= '<input type="text" name="vendor_price" value="'.$getAttribute->vendor_price.'" class="form-control input-default ">';
+                $select .= '</div>';
+            $select .= '</div>';
+        $select .= '</div>';
+        $select .= '<br>';
+
+        $select .= '<div class="mb-3">';
+            $select .= '<div class="align-items-center">';
+                $select .= '<div class="col-auto my-1">';
+                    $select .= '<h5 class="me-sm-2">Stock Price</h5>';
+                    $select .= '<input type="text" name="stock_price" value="'.$getAttribute->stock_price.'" class="form-control input-default ">';
+                $select .= '</div>';
+            $select .= '</div>';
+        $select .= '</div>';
+        $select .= '<br>';
+
+        $select .= '<div class="mb-3">';
+            $select .= '<div class="align-items-center">';
+                $select .= '<div class="col-auto my-1">';
+                    $select .= '<h5 class="me-sm-2">Discount</h5>';
+                    $select .= '<input id="discount" type="text" name="discount" value="'.$getAttribute->discount.'" class="form-control input-default ">';
+                $select .= '</div>';
+            $select .= '</div>';
+        $select .= '</div>';
+        $select .= '<br>';
+
+        $select .= '<div class="mb-3">';
+            $select .= '<div class="align-items-center">';
+                $select .= '<div class="col-auto my-1">';
+                    $select .= '<h5 class="me-sm-2">Selling Price</h5>';
+                    $select .= '<input id="selling_price" type="text" name="selling_price" value="'.$getAttribute->selling_price.'" class="form-control input-default ">';
+                $select .= '</div>';
+            $select .= '</div>';
+        $select .= '</div>';
+        $select .= '<br>';
+        $select .= '<button type="submit" class="btn btn-primary">Update</button>&nbsp';
+        $select .= '<button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>';
+
+        $data['result'] = array(
+            'key'=>200,
+            'val'=>$select
+        );
+        return response()->json($data,200);
+
+    }
+    //edit product attribute post 
+    public function edit_product_attribute_post(EditProductAttributeRequest $request){
+        $total_quantity = 0;
+        $productAttribute = new ProductAttribute();
+        if(!empty($attribute_size_s_m_l[$key])){
+            $productAttribute->attribute_size = $attribute_size_s_m_l[$key];
+        }elseif(!empty($attribute_size_xl_xs[$key])){
+            $productAttribute->attribute_size = $attribute_size_xl_xs[$key];
+        }elseif(!empty($attribute_size_30_32[$key])){
+            $productAttribute->attribute_size = $attribute_size_30_32[$key];
+        }
+        $productAttribute->attribute_color = $attribute_color[$key];
+        $productAttribute->attribute_design = $attribute_design[$key];
+        $productAttribute->attribute_weight = $attribute_weight[$key];
+        $productAttribute->quantity = $quantityRow;
+        $productAttribute->product_id = $product->id;
+        $productAttribute->vendor_price = $vendor_price[$key];
+        $productAttribute->stock_price = $stock_price[$key];
+        $productAttribute->selling_price = $selling_price[$key];
+        $productAttribute->status = 0;
+        $productAttribute->is_deleted = 0;
+        $total_quantity += $quantityRow;
+        $productAttribute->save();
+    }
 }
+

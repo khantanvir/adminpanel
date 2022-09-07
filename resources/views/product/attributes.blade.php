@@ -47,10 +47,8 @@
                                     </td>
                                     <td>
                                         <div class="d-flex">
-                                            {{-- <a title="Edit" href="{{ URL::to('edit-product/'.$row->id) }}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                            <a title="Product Attributes" href="{{ URL::to('product-attributes/'.$row->id) }}" class="btn btn-info shadow btn-xs sharp me-1"><i class="fas fa-chart-bar"></i></a>
-                                            <a title="Product Images" href="{{ URL::to('product-images/'.$row->id) }}" class="btn btn-info shadow btn-xs sharp me-1"><i class="fas fa-file-image"></i></a>
-                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Product Data?')) location.href='{{ URL::to('delete-product/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a> --}}
+                                            <a onclick="getProductAttributeData({{ $row->id }})" title="Edit" href="javascript://" class="btn btn-primary shadow btn-xs sharp me-1" data-bs-toggle="modal" data-bs-target="#productEditModal"><i class="fas fa-pencil-alt"></i></a>
+                                            <a href="javascript:void(0)" onclick="if(confirm('Are you sure to Delete this Product Data?')) location.href='{{ URL::to('delete-product/'.$row->id) }}'; return false;" title="Delete" href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                         </div>
                                     </td>
                                 </tr>
@@ -66,22 +64,8 @@
                     <form method="post" action="{{ URL::to('change-main-image-post') }}" enctype="multipart/form-data">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             @csrf
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Change Main Image</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="form-file">
-                                        <input type="hidden" name="product_id" id="product_id" value="">
-                                        <input placeholder="choose main image" type="file" name="main_image" class="form-file-input form-control">
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger light" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
+                            <div id="productAttributeModal" class="row modal-content">
+                                
                             </div>
                         </div>
                     </form>
