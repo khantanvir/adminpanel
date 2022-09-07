@@ -172,9 +172,6 @@
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Quantity</label>
                                                         <input type="text" name="quantity[]" value="" class="form-control input-default ">
-                                                        @if ($errors->has('quantity'))
-                                                            <span class="text-danger">{{ $errors->first('quantity') }}</span>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -191,9 +188,6 @@
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Stock Price</label>
                                                         <input type="text" name="stock_price[]" value="" class="txt-stock-price form-control input-default ">
-                                                        @if ($errors->has('stock_price'))
-                                                            <span class="text-danger">{{ $errors->first('stock_price') }}</span>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,9 +196,6 @@
                                                     <div class="col-auto my-1">
                                                         <label class="me-sm-2">Selling Price</label>
                                                         <input type="text" name="selling_price[]" value="" class="form-control input-default ">
-                                                        @if ($errors->has('selling_price'))
-                                                            <span class="text-danger">{{ $errors->first('selling_price') }}</span>
-                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>

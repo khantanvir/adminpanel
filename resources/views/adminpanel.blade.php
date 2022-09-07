@@ -549,6 +549,21 @@
 					}
 				});
 			}
+			//get product attrubute data for edit 
+			function getProductAttributeData(x){
+				if(x===""){
+					return false;
+				}
+				$.get("{{ URL::to('get-product-attribute-for-edit') }}/"+x,function(data,status){
+					if(data['result']['key']===101){
+						alert(data['result']['val']);
+					}
+					if(data['result']['key']===200){
+						console.log(data['result']['val']);
+						$('#productAttributeModal').html(data['result']['val']);
+					}
+				});
+			}
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {

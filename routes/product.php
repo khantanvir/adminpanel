@@ -15,6 +15,7 @@ Route::controller(ProductController::class)->group(function() {
     Route::post('edit-product-post','edit_product_post');
     Route::get('delete-product/{id?}','delete_product');
     Route::get('product-attributes/{id?}','product_attributes');
+    Route::get('get-product-attribute-for-edit/{id?}','get_product_attribute_for_edit');
 });
 
 ?>
