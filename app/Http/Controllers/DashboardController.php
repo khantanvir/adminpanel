@@ -80,4 +80,8 @@ class DashboardController extends Controller{
         );
         return response()->json($data, 200);
     }
+    //test commit 
+    public function test_action(){
+        return view('dasgboard/index');
+    }
 }
