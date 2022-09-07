@@ -45,12 +45,5 @@ class LoginController extends Controller{
         Session::flash('success', 'Logout Successfully!');
         return redirect('login');
     }
-    //new function 
-    public function login_check(){
-        echo "Data find out with in a second";
-    }
-    //hello this is test 
-    public function get_test(){
-        echo 'Hello this is just test';
-    }
+
 }
