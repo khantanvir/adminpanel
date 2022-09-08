@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="modal fade" id="productEditModal">
-                    <form method="post" action="{{ URL::to('change-main-image-post') }}" enctype="multipart/form-data">
+                    <form method="post" action="{{ URL::to('edit-product-attribute-post') }}" enctype="multipart/form-data">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             @csrf
                             <div id="productAttributeModal" class="row modal-content">
