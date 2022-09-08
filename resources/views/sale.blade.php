@@ -45,7 +45,7 @@
 	<div class="col-lg-6 col-sm-6">
 		<form action="#" class="search-wrap">
 			<div class="input-group">
-			    <input type="text" class="form-control" placeholder="Search Products">
+			    <input type="text" class="search-input" placeholder="Search Products">
 			    <div class="input-group-append">
 			      <button class="btn search-button" type="submit">
 			        <i class="fa fa-search"></i>
@@ -107,7 +107,7 @@
 		<div class="m-btn-group m-btn-group--pill btn-group mr-2" role="group" aria-label="...">
 																		<button type="button" class="m-btn btn btn-default"><i class="fa fa-minus"></i></button>
 																		<button type="button" class="m-btn btn btn-default" disabled>3</button>
-																		<button type="button" class="m-btn btn btn-default"><i class="fa fa-plus"></i></button>
+																		<button type="button" class="m-btn btn btn-default"><i class=" fa fa-plus"></i></button>
 																	</div>
 	</td>
 	<td> 
@@ -222,7 +222,16 @@
 </tbody>
 </table>
 </span>
-</div> <!-- card.// -->
+<!-- shipping address -->
+<div><button class="btn shipping-address">Customer Shipping Address</button></div>
+<!-- cupon code -->
+<div class="mt-3 mb-3">
+	<h6>Type your copun code : <input type="text"></h6>
+</div>
+</div> 
+
+
+<!-- card.// -->
 <div class="box">
 <dl class="dlist-align">
   <dt>Tax: </dt>
@@ -242,7 +251,7 @@
 </dl>
 <div class="row">
 	<div class="col-md-6">
-		<a href="#" class="btn  btn-default btn-error btn-lg btn-block"><i class="fa fa-times-circle "></i> Cancel </a>
+		<a href="#" class="btn  btn-default btn-error btn-lg btn-block cancel-button"><i class="fa fa-times-circle "></i> Cancel </a>
 	</div>
 	<div class="col-md-6">
 		<a href="#" class="btn charge-button  btn-lg btn-block"><i class="fa fa-shopping-bag"></i> Charge </a>

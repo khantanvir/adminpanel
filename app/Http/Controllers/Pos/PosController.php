@@ -11,4 +11,8 @@ class PosController extends Controller
         $data['page_title'] = 'POS';
         return view('pos/index',$data);
     }
+    public function details(){
+        $data['page_title'] = 'Details';
+        return view('pos/details',$data); 
+    }
 }

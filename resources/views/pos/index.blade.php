@@ -25,15 +25,15 @@
 <div class="row">
     <div class="col-md-3">
     <figure class="card card-product">
-        <span class="badge-new"> NEW </span>
+        <span class="new-product"> NEW </span>
         <div class="img-wrap"> 
             <img src="{{ asset('sale/assets/images/items/3.jpg ') }}">
-            <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+            <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i>Details</a>
         </div>
         <figcaption class="info-wrap">
             <a href="#" class="title text-dark">Good item name</a>
             <div class="action-wrap">
-                <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+                <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
                 <div class="price-wrap h5">
                     <span class="price-new text-danger">$1280</span>
                 </div> <!-- price-wrap.// -->
@@ -43,14 +43,14 @@
     </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/4.jpg ') }}">
-    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -60,14 +60,14 @@
 </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/5.jpg ') }}">
-    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
@@ -78,14 +78,14 @@
 </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/6.jpg ') }}">
-        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -97,15 +97,15 @@
 <div class="row">
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> 
         <img src="{{ asset('sale/assets/images/items/1.jpg ') }}">
-        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Good item name</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$1280</span>
             </div> <!-- price-wrap.// -->
@@ -115,14 +115,14 @@
 </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/2.jpg ') }}">
-    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+    <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -132,14 +132,14 @@
 </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/7.jpg ') }}">
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
@@ -150,14 +150,14 @@
 </div> <!-- col // -->
 <div class="col-md-3">
 <figure class="card card-product">
-    <span class="badge-new"> NEW </span>
+    <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/comp.png ') }}">
-        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
+        <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i>Details</a>
     </div>
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div>
