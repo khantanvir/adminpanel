@@ -6,6 +6,7 @@ use App\Http\Controllers\Pos\PosController;
 //category route 
 Route::controller(PosController::class)->group(function() {
     Route::get('/pos', 'index');
+    Route::get('/product/details', 'details');
 });
 
 ?>

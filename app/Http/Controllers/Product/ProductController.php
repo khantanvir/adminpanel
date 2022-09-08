@@ -19,10 +19,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Pagination\Paginator;
+use App\Helper\Activity\SaveActivity;
 
 class ProductController extends Controller
 {
-    use Service;
+    use Service, SaveActivity;
     public function index(){
 
     }
@@ -305,6 +306,7 @@ class ProductController extends Controller
         $select .= '<div class="mb-3 col-auto my-1 align-items-center">';
         $select .= '<h4>Edit Product Attribute</h4>';
         $select .= '</div>';
+        $select .= '<input type="hidden" name="product_attribute_id" id="product_attribute_id" value="'.$getAttribute->id.'">';
         foreach($all_attribute as $key=>$attributes){
             if($attributes->name=="size(s/m/l)"){
                 $select .= '<div class="mb-3">';
@@ -387,7 +389,7 @@ class ProductController extends Controller
                     $select .= '<div class="align-items-center">';
                         $select .= '<div class="col-auto my-1">';
                         $select .= '<h5 class="me-sm-2">'.$attributes->name.'</h5>';
-                            $select .= '<select name="attribute_color" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
+                            $select .= '<select name="attribute_design" class="me-sm-2 default-select form-control wide" id="inlineFormCustomSelect">';
                             $select .= '<option></option>';
                             foreach($attributes->attribute_value as $attr_value){
                                 if($attr_value->name==$getAttribute->attribute_design){
@@ -483,27 +485,45 @@ class ProductController extends Controller
     }
     //edit product attribute post 
     public function edit_product_attribute_post(EditProductAttributeRequest $request){
-        $total_quantity = 0;
-        $productAttribute = new ProductAttribute();
-        if(!empty($attribute_size_s_m_l[$key])){
-            $productAttribute->attribute_size = $attribute_size_s_m_l[$key];
-        }elseif(!empty($attribute_size_xl_xs[$key])){
-            $productAttribute->attribute_size = $attribute_size_xl_xs[$key];
-        }elseif(!empty($attribute_size_30_32[$key])){
-            $productAttribute->attribute_size = $attribute_size_30_32[$key];
+        $productAttribute = ProductAttribute::find($request->input('product_attribute_id'));
+        if(!$productAttribute){
+            Session::flash('error','Product Attribute Data Not Found');
+            return redirect('products');
         }
-        $productAttribute->attribute_color = $attribute_color[$key];
-        $productAttribute->attribute_design = $attribute_design[$key];
-        $productAttribute->attribute_weight = $attribute_weight[$key];
-        $productAttribute->quantity = $quantityRow;
-        $productAttribute->product_id = $product->id;
-        $productAttribute->vendor_price = $vendor_price[$key];
-        $productAttribute->stock_price = $stock_price[$key];
-        $productAttribute->selling_price = $selling_price[$key];
+        if(!empty($request->input('attribute_size_s_m_l'))){
+            $productAttribute->attribute_size = $request->input('attribute_size_s_m_l');
+        }elseif(!empty($request->input('attribute_size_xl_xs'))){
+            $productAttribute->attribute_size = $request->input('attribute_size_xl_xs');
+        }elseif(!empty($request->input('attribute_size_30_32'))){
+            $productAttribute->attribute_size = $request->input('attribute_size_30_32');
+        }
+        $productAttribute->attribute_color = $request->input('attribute_color');
+        $productAttribute->attribute_design = $request->input('attribute_design');
+        $productAttribute->attribute_weight = $request->input('attribute_weight');
+        $productAttribute->quantity = $request->input('quantity');
+        $productAttribute->product_id = $productAttribute->product_id;
+        $productAttribute->vendor_price = $request->input('vendor_price');
+        $productAttribute->stock_price = $request->input('stock_price');
+        $productAttribute->discount = $request->input('discount');
+        $productAttribute->selling_price = $request->input('selling_price');
         $productAttribute->status = 0;
         $productAttribute->is_deleted = 0;
-        $total_quantity += $quantityRow;
         $productAttribute->save();
+        //quantity update 
+        $getProductList = ProductAttribute::where('product_id',$productAttribute->product_id)->where('is_deleted',0)->get();
+        if($getProductList){
+            $total_quantity = 0;
+            foreach($getProductList as $row){
+                $total_quantity += $row->quantity;
+            }
+            //product stock update 
+            $update = Product::where('id',$productAttribute->product_id)->update(['total_stock'=>$total_quantity]);
+            //save activity
+            $saveActivity = SaveActivity::saveProductAttributeActivity($productAttribute);
+            Session::flash('success','Product Attribute Data Updated Successfully!');
+            return redirect('product-attributes/'.$productAttribute->product_id);
+        }
+
     }
 }
 
