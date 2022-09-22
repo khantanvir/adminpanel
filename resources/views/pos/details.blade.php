@@ -9,22 +9,31 @@
 						
 						<div class="preview-pic tab-content">
 						  <div class="tab-pane active" id="pic-1">
-                            <img class="details-image" src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-2"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-3"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
-						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
+                            <img class="details-image zoom-image" src="https://static-01.daraz.com.bd/p/b854680b82b5d93c190c276b4b58d783.jpg" /></div>
+						  <div class="tab-pane pic-2" id="pic-2">
+							<img class="zoom-image" src="https://img.freepik.com/free-psd/isolated-black-t-shirt-front_125540-1167.jpg" />
+							
 						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
-						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <div class="tab-pane" id="pic-3">
+							<img class="zoom-image" src="https://spito.com.bd/wp-content/uploads/2022/04/Men-Stylist-T-Shirt-Single-500x408.png" />
+						</div>
+						  <div class="tab-pane" id="pic-4">
+							<img class="zoom-image" src="https://cdn.shopify.com/s/files/1/2987/0758/products/Marais_T-Shirt-T-Shirt-LDM101091-522522-Olive_Night_600x.jpg" />
+						</div>
+						  <div class="tab-pane" id="pic-5">
+							<img class="zoom-image" src="https://img.freepik.com/free-psd/isolated-black-t-shirt-front_125540-1167.jpg" />
+						</div>
+						</div>
+						<ul class="preview-thumbnail nav nav-tabs sub-image">
+						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="https://static-01.daraz.com.bd/p/b854680b82b5d93c190c276b4b58d783.jpg" /></a></li>
 						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
+						  <li><a data-target="#pic-3" data-toggle="tab"><img src="https://spito.com.bd/wp-content/uploads/2022/04/Men-Stylist-T-Shirt-Single-500x408.png" /></a></li>
+						  <li><a data-target="#pic-4" data-toggle="tab"><img src="https://cdn.shopify.com/s/files/1/2987/0758/products/Marais_T-Shirt-T-Shirt-LDM101091-522522-Olive_Night_600x.jpg" /></a></li>
+						  <li><a data-target="#pic-5" data-toggle="tab"><img src="https://media.gq.com/photos/5ca7ad6d1656fe4e4c2710d7/master/w_1280%2Cc_limit/GQ-Best-Stuff-T's-lemongrass-3x2.jpg" /></a></li>
 						</ul>
 						
 					</div>
-					<div class="details">
+					<div class="col-7">
 						<h3 class="product-title">men's shoes fashion</h3>
 						<div class="rating">
 							<div class="stars">

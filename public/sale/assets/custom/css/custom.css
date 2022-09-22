@@ -563,3 +563,20 @@ width: 66%;
       -webkit-transform: scale(1);
               transform: scale(1); }
  }
+ /* .pic-2{
+  position: relative;
+ } */
+ .zoom-image{ 
+ margin-top: 60px;
+  transition: transform 1s;
+ }
+ .zoom-image:hover{
+transform: scale(1.5);
+
+ }
+ .sub-image{
+  width: 400px;
+  height: auto;
+ }
+
+ 

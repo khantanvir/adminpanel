@@ -222,13 +222,7 @@
 </tbody>
 </table>
 </span>
-<!-- shipping address -->
-<div><button class="btn shipping-address">Customer Shipping Address</button></div>
-<!-- cupon code -->
-<div class="mt-3 mb-3">
-	<h6>Type your copun code : <input type="text"></h6>
-</div>
-</div> 
+
 
 
 <!-- card.// -->
