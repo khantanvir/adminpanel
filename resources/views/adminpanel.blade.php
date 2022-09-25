@@ -26,7 +26,7 @@
 	<!-- Style css -->
     <link href="{{ asset('backend/css/style.css ') }}" rel="stylesheet">
 	
-	
+		
 </head>
 <body>
 
@@ -331,6 +331,7 @@
             </div>
         </div>
 	</div>
+
     <script src="{{ asset('backend/vendor/global/global.min.js ') }}"></script>
 	<script src="{{ asset('backend/vendor/chart.js/Chart.bundle.min.js ') }}"></script>
 	<script src="{{ asset('backend/vendor/jquery-nice-select/js/jquery.nice-select.min.js ') }}"></script>

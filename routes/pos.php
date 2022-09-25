@@ -7,6 +7,8 @@ use App\Http\Controllers\Pos\PosController;
 Route::controller(PosController::class)->group(function() {
     Route::get('/pos', 'index');
     Route::get('/product/details', 'details');
+    Route::get('/product/checkout', 'checkout');
+    Route::get('/product/invoice', 'invoice');
 });
 
 ?>

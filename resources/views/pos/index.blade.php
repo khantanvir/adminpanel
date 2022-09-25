@@ -1,6 +1,6 @@
 @extends('sale')
 @section('salepanel')
-<div class="col-md-8 card padding-y-sm card ">
+<div class="col-md-8 padding-y-sm card">
 <ul class="nav bg radius nav-pills nav-fill mb-3 bg" role="tablist">
     <li class="nav-item">
         <a class=" active show category-part" data-toggle="pill" href="#nav-tab-card">
@@ -33,7 +33,7 @@
         <figcaption class="info-wrap">
             <a href="#" class="title text-dark">Good item name</a>
             <div class="action-wrap">
-                <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+                <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
                 <div class="price-wrap h5">
                     <span class="price-new text-danger">$1280</span>
                 </div> <!-- price-wrap.// -->
@@ -50,7 +50,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -67,7 +67,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
@@ -85,7 +85,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -105,7 +105,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Good item name</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$1280</span>
             </div> <!-- price-wrap.// -->
@@ -122,7 +122,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div> <!-- price-wrap.// -->
@@ -139,7 +139,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">Name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
                 <del class="price-old">$1980</del>
@@ -157,7 +157,7 @@
     <figcaption class="info-wrap">
         <a href="#" class="title text-dark">The name of product</a>
         <div class="action-wrap">
-            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add To Cart </a>
+            <a href="#" class="btn add-button btn-sm float-right"> <i class="fa fa-cart-plus"></i> Add </a>
             <div class="price-wrap h5">
                 <span class="price-new text-danger">$280</span>
             </div>
