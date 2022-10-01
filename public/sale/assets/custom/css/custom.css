@@ -11,7 +11,21 @@ input:focus{
     background-color: darkorange;
     color: white;
 }
-
+.home-part{
+  position: absolute !important;
+  right: 10px;
+}
+@media only screen and (max-width: 576px) {
+ .home-part{
+  top: 20px;
+  right: 0;
+  padding-left: 10px;
+ }
+ .head-logo{
+  width: 100px;
+  font-size: 1.2rem !important;
+ }
+}
 .cart-image{
     width: 40px;
 }
@@ -61,13 +75,6 @@ input:focus{
   padding-left: 10px;
 }
 
- /* @media screen and (min-width: 767px) {
-  .my-table tr,
-    th,
-    td {
-      padding: 2px;
-    }
- } */
 .discount-amount{
     color: darkorange;
 }
@@ -798,11 +805,17 @@ justify-content: space-between;
     margin: 5px 0;
     min-height: 30px;
   }
+
 /* invoice Design */
+
 .invoice{
   display: flex;
   justify-content: space-between;
 }
+.invoice-logo{
+  width: 100px;
+  height: 100px;
+  }
 .invoice label{
   font-size: 1rem;
 }
@@ -821,6 +834,14 @@ justify-content: space-between;
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+}
+@media only screen and (min-width: 576px) {
+
+.contact-us{
+  
+  /* flex-wrap:wrap !important; */
+}
+
 }
 
  .invoice-table td,
@@ -841,11 +862,15 @@ justify-content: space-between;
   display: flex;
   justify-content: space-between;
 }
-.vl{
-    border-left: 2px solid white;
-      height: 20px;
+.tax-amount{
+  margin-left: 60px;
+}
+.vl {
+  border-left: 1px solid rgb(218, 216, 216);
+  height: 100px;
+  
 }
 .vl2{
-  border-left: 1px solid rgb(218, 216, 216);
-    height: 100px;
+  border-left: 2px solid white;
+  height: 20px;
 }

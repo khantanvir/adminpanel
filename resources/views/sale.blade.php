@@ -36,13 +36,13 @@
 <section class="header-main">
 	<div class="container">
 <div class="row align-items-center">
-	<div class="col-md-3 col-sm-4">
+	<div class="col-md-3">
 	<div class="brand-wrap">
 		<img class="logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
-		<h2 class="logo-text my-text">Squanchy POS</h2>
+		<h2 class="logo-text my-text head-logo">Squanchy POS</h2>
 	</div> <!-- brand-wrap.// -->
 	</div>
-	<div class="col-md-6 col-sm-4">
+	<div class="col-md-6">
 		<form action="#" class="search-wrap">
 			<div class="input-group">
 			    <input type="text" class="search-input" placeholder="Search Products">
@@ -54,7 +54,7 @@
 		    </div>
 		</form> <!-- search-wrap .end// -->
 	</div> <!-- col.// -->
-	<div class="col-md-3 col-sm-4">
+	<div class="col-md-3 home-part">
 		<div class="widgets-wrap d-flex justify-content-end">
 			<div class="widget-header">
 				<a href="#" class="icontext">
@@ -79,7 +79,7 @@
 
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y-sm bg-default ">
-<div class="container-fluid">
+<div class="">
 <div class="row">
 	@yield('salepanel')
 	<div class="col-md-4 col-sm-12">
@@ -233,7 +233,7 @@
 </dl>
 <dl class="dlist-align">
   <dt>Discount:</dt>
-  <dd class="text-center"><a class="discount-amount" href="#">0%</a></dd>
+  <dd class="text-center"><span class="discount-amount" >0%</span></dd>
 </dl>
 <dl class="dlist-align">
   <dt>Sub Total:</dt>

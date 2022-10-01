@@ -2,17 +2,17 @@
 @section('salepanel')
 <div class="col-md-8">
 
- <div class=" bg-white p-5">
- <div class="invoice">
-    <div>
-        <h2>Invoice Logo</h2>
-    </div>
-    <div>
-        <h2>Invoice</h2>
-        <h5><b>Invoice No</b>: <label>#12151512</label></h5>
-        <h5><b>Date:</b> <label>25/09/2022</label></h5>
-    </div>
-    </div>
+    <div class=" bg-white p-5">
+        <div class="invoice">
+            <div>
+                <img class="invoice-logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
+            </div>
+            <div>
+                <h3>Invoice</h3>
+                <h5><b>Invoice No</b>: <label>#12151512</label></h5>
+                <h5><b>Date:</b> <label>25/09/2022</label></h5>
+            </div>
+            </div>
     <div class="invoice-location mt-4">
         <div>
             <h6>Invoice To</h6>
@@ -21,7 +21,7 @@
              <span>WRHX+8Q IN 46240,</span><br>
              <span>Bangladesh</span><br>
         </div>
-        <div class="vl2">
+        <div class="vl">
         </div>
         <div>
             <h6>Company name</h6>
@@ -42,7 +42,7 @@
         </div>
     </div>
     
-        <div class="invoice-table mt-4">
+    <div class="invoice-table mt-4 table-responsive">
             <table>
                 <tr class="table-head">
                     <th>Product Id</th>
@@ -54,34 +54,34 @@
                 <tr>
                     <td>2121515</td>
                     <td>Mobile</td>
-                    <td>Germany</td>
+                    <td>600</td>
                     <td>2</td>
                     <td>900</td>
                 </tr>
               <tr>
                     <td>2121515</td>
                     <td>Mobile</td>
-                    <td>Germany</td>
+                    <td>500</td>
                     <td>2</td>
                     <td>900</td>
                 </tr>
             <tr>
                 <td>2121515</td>
                 <td>Mobile</td>
-                <td>Germany</td>
+                <td>400</td>
                 <td>2</td>
                 <td>900</td>
             </tr>
                <tr class="table-end">
                     <td>2121515</td>
                     <td>Mobile</td>
-                    <td>Germany</td>
+                    <td>200</td>
                     <td>2</td>
                     <td>900</td>
                 </tr>
         
           </table>
-        </div>
+    </div>
         <div class="invoice-payment-info mt-4">
             <div>
                 <h6>Payment info</h6>
@@ -95,7 +95,7 @@
                 </div>
                 <div class="d-flex">
                     <h6>Tax:</h6>
-                    <span class="mx-5">$100</span>
+                    <span class="tax-amount">$100</span>
                 </div>
                 <hr>
                 <div class="d-flex">
@@ -105,6 +105,8 @@
           
             </div>
         </div>
+
+        
         <div class="d-flex justify-content-center mt-4">
       
             <div>
@@ -115,11 +117,11 @@
             </div>
       
         </div>
-        <div class="d-flex justify-content-center bg-dark mt-4 pt-2">
+        <div class="d-flex justify-content-center flex-wrap contact-us bg-dark mt-4 pt-2">
             <div class="mr-5">
-                <h6 class="text-info">Call: +124124545115</h6>
+                <h6 class="text-info">Call: +880174971873</h6>
             </div>
-             <div class="vl">
+             <div class="vl2">
              </div>
             <div class="ml-5">
                 <h6 class="text-info">www.infotech12.com</h6>
