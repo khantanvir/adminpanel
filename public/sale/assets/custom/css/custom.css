@@ -14,6 +14,7 @@ input:focus{
 .home-part{
   position: absolute !important;
   right: 10px;
+  top: 35px;
 }
 @media only screen and (max-width: 576px) {
  .home-part{
@@ -619,8 +620,6 @@ input:focus{
  /* chekout page style */
 
 
-
-
 .checkout-wrapper {
 
   width: 100%;
@@ -663,7 +662,7 @@ form {
      
   }
 
-  .checkout-input input
+  .checkout-input .shiping-input
    {
     width: 100%;
     border: 1px solid rgb(57, 36, 36);
@@ -726,7 +725,7 @@ form {
 }
   .checkout-button button {
     margin: 3px 0;
-    height: 50px;
+    height: 40px;
     width: 100%;
     background-color: darkorange;
     color: white;
@@ -778,30 +777,34 @@ button:focus {
   .container-chekout {
     width: 90%;
   }
-
- 
-  .checkout-button button {
-      width: 100%;
-    }
+  
   }
 
   form h1 {
     text-align: center;
   }
 
+ .payment-info {
+      justify-content: space-between;
+      display: flex;
+      width: 100%;
   
-.payment-info div {
-  width: 45%;
-}
-  
-.payment-info {
-justify-content: space-between;
-  display: flex;
+    }
+
+.payment-info .payment-method {
   width: 100%;
-    
+  border: 1px solid rgb(57, 36, 36);
+  height: 30px;
+  outline: 0;
+  font-size: 1rem;
+  letter-spacing: .15rem;
+  font-family: "Arimo";
+  margin-top: 5px;
+  border-radius: 4px;
 }
 
-  .checkout-input input {
+
+  .checkout-input .shiping-input {
     margin: 5px 0;
     min-height: 30px;
   }
@@ -811,6 +814,10 @@ justify-content: space-between;
 .invoice{
   display: flex;
   justify-content: space-between;
+}
+.invoice-description{
+  width: 380px;
+  font-weight: 500;
 }
 .invoice-logo{
   width: 100px;
@@ -835,13 +842,26 @@ justify-content: space-between;
   border-collapse: collapse;
   width: 100%;
 }
-@media only screen and (min-width: 576px) {
-
-.contact-us{
-  
-  /* flex-wrap:wrap !important; */
+@media only screen and (min-width: 768px) and (max-width:1023) {
+.invoice-part{
+  display: flex;
+  justify-content: space-between;
 }
-
+}
+@media only screen and (max-width: 576px) {
+.invoice {
+   flex-direction:column;
+   align-items: center;
+  }
+.invoice-logo{
+  text-align: center;
+}
+.invoice-description {
+  width: 300px;
+}
+.invoice-number{
+  margin-left: 60px;
+}
 }
 
  .invoice-table td,
@@ -874,3 +894,6 @@ justify-content: space-between;
   border-left: 2px solid white;
   height: 20px;
 }
+/* .print-area {
+  background-color: darkorange;
+} */

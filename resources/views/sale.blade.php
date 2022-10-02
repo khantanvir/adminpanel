@@ -82,7 +82,7 @@
 <div class="">
 <div class="row">
 	@yield('salepanel')
-	<div class="col-md-4 col-sm-12">
+	<div class="col-lg-4 col-md-12 col-sm-12">
 <div class="card">
 	<span id="cart">
 <table class="my-table cart-table table-hover">

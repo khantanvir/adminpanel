@@ -1,7 +1,7 @@
 @extends('sale')
 @section('salepanel')
 
-<div class="details-page col-md-8">
+<div class="details-page col-lg-8 col-md-12 col-sm-12">
 	<div class="">
 			<div class="card-details">
 				<div class="container-fliud">

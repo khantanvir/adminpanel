@@ -1,13 +1,18 @@
 @extends('sale')
 @section('salepanel')
-<div class="col-md-8">
+<div class="col-lg-8 col-md-12 bg-white invoice-part">
 
-    <div class=" bg-white p-5">
+    <div class="  p-5">
         <div class="invoice">
-            <div>
+            <div class="">
                 <img class="invoice-logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
             </div>
-            <div>
+            <div class="">
+                <h3 class="text-center">Beautysiaa online Shop</h3>
+                <p class="text-center invoice-description">Beautysiaa is a best online cosmetics shop in Bangladesh. Buy 100% authentic cosmetics, beauty, makeup, skincare
+                products at cheapest price.</p>
+            </div>
+            <div class="invoice-number">
                 <h3>Invoice</h3>
                 <h5><b>Invoice No</b>: <label>#12151512</label></h5>
                 <h5><b>Date:</b> <label>25/09/2022</label></h5>
@@ -106,17 +111,6 @@
             </div>
         </div>
 
-        
-        <div class="d-flex justify-content-center mt-4">
-      
-            <div>
-                <button class="bg-dark text-white btn px-3">Print</button>
-            </div>
-            <div>
-                <button class="bg-info text-white btn">Download</button>
-            </div>
-      
-        </div>
         <div class="d-flex justify-content-center flex-wrap contact-us bg-dark mt-4 pt-2">
             <div class="mr-5">
                 <h6 class="text-info">Call: +880174971873</h6>
@@ -128,6 +122,14 @@
             </div>
         </div>
    
+    </div>
+    <div class="d-flex justify-content-center print-area pb-3">
+        <div>
+            <button class="bg-dark text-white btn">Print</button>
+        </div>
+        <div>
+            <button class="bg-info text-white btn">Download</button>
+        </div>
  </div>
 </div>
 @endsection
