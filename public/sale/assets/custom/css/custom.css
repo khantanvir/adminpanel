@@ -1,3 +1,4 @@
+
 input:focus{
     outline: none;
 }
@@ -57,6 +58,21 @@ input:focus{
     color: white;
 }
 /* cart part */
+.my-row {
+  margin-right: -0 !important;
+  margin-left: -0 !important;
+}
+.cart-part{
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+@media only screen and (min-width: 992px) {
+  .cart-part {
+      padding-right: 15px !important;
+      padding-left: 15px !important;
+    }
+}
+
 .my-table{
   width: 100%;
 }
@@ -145,11 +161,11 @@ input:focus{
 
 /* detaisl page */
 
- .sub-image img{
+ /* .sub-image img{
   width: 100%;
    height: auto;
 
-  }
+  } */
   .preview {
     display: -webkit-box;
     display: -webkit-flex;

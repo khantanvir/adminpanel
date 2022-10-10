@@ -1,6 +1,6 @@
 @extends('sale')
 @section('salepanel')
-<div class="col-lg-8 col-md-12 col-sm-12 padding-y-sm card pl-5">
+<div class="col-lg-8 col-md-12 col-sm-12 padding-y-sm card">
 <ul class="nav bg radius nav-pills nav-fill mb-3 bg" role="tablist">
     <li class="nav-item">
         <a class=" active show category-part" data-toggle="pill" href="#nav-tab-card">
@@ -21,10 +21,10 @@
         <a class="category-part" data-toggle="pill" href="#nav-tab-bank">
         <i class="fa fa-tags "></i>  Category 5</a></li>
 </ul>
-<span   id="items">
+<span id="items">
 <div class="row">
     <div class="col-lg-3 col-md-4">
-    <figure class="card card-product p-2">
+    <figure class="card card-product">
         <span class="new-product"> NEW </span>
         <div class="img-wrap"> 
             <img src="{{ asset('sale/assets/images/items/3.jpg ') }}">
@@ -42,7 +42,7 @@
     </figure> <!-- card // -->
     </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/4.jpg ') }}">
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
@@ -59,7 +59,7 @@
 </figure> <!-- card // -->
 </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/5.jpg ') }}">
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
@@ -77,7 +77,7 @@
 </figure> <!-- card // -->
 </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/6.jpg ') }}">
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
@@ -96,7 +96,7 @@
 <!-- row.// -->
 
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> 
         <img src="{{ asset('sale/assets/images/items/1.jpg ') }}">
@@ -114,7 +114,7 @@
 </figure> <!-- card // -->
 </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/2.jpg ') }}">
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Details</a>
@@ -131,7 +131,7 @@
 </figure> <!-- card // -->
 </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/7.jpg ') }}">
     <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i> Quick view</a>
@@ -149,7 +149,7 @@
 </figure> <!-- card // -->
 </div> <!-- col // -->
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/comp.png ') }}">
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i>Details</a>
@@ -166,7 +166,7 @@
 </figure>
 </div>
 <div class="col-lg-3 col-md-4">
-<figure class="card card-product p-2">
+<figure class="card card-product ">
     <span class="new-product"> NEW </span>
     <div class="img-wrap"> <img src="{{ asset('sale/assets/images/items/comp.png ') }}">
         <a class="btn-overlay" href="#"><i class="fa fa-search-plus"></i>Details</a>

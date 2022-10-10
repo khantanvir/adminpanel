@@ -80,9 +80,9 @@
 <!-- ========================= SECTION CONTENT ========================= -->
 <section class="section-content padding-y-sm bg-default ">
 <div class="">
-<div class="row">
+<div class="row my-row">
 	@yield('salepanel')
-	<div class="col-lg-4 col-md-12 col-sm-12">
+	<div class="col-lg-4 col-md-12 col-sm-12 cart-part">
 <div class="card">
 	<span id="cart">
 <table class="my-table cart-table table-hover">
@@ -97,7 +97,7 @@
 <tbody>
 <tr>
 	<td>
-<figure class="media">
+<figure class="media align-items-center">
 	<div class="mx-2 cart-image"><img src="{{ asset('sale/assets/images/items/1.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name </h6>
@@ -121,7 +121,7 @@
 </tr>
 <tr>
 	<td>
-<figure class="media">
+<figure class="media align-items-center">
 	<div class="mx-2 "><img src="{{ asset('sale/assets/images/items/5.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name  </h6>
@@ -145,7 +145,7 @@
 </tr>
 <tr>
 	<td>
-<figure class="media">
+<figure class="media align-items-center">
 	<div class="mx-2"><img src="{{ asset('sale/assets/images/items/4.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name  </h6>
@@ -169,7 +169,7 @@
 </tr>
 <tr>
 	<td>
-<figure class="media">
+<figure class="media align-items-center">
 	<div class="mx-2"><img src="{{ asset('sale/assets/images/items/2.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name  </h6>
@@ -193,7 +193,7 @@
 </tr>
 <tr>
 	<td>
-<figure class="media">
+<figure class="media align-items-center">
 	<div class="mx-2"><img src="{{ asset('sale/assets/images/items/3.jpg') }}" class="img-thumbnail img-xs"></div>
 	<figcaption class="media-body">
 		<h6 class="title text-truncate">Product name  </h6>

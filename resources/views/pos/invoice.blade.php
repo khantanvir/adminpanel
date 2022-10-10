@@ -2,7 +2,7 @@
 @section('salepanel')
 <div class="col-lg-8 col-md-12 bg-white invoice-part">
 
-    <div class="  p-5">
+    <div class="p-5">
         <div class="invoice">
             <div class="">
                 <img class="invoice-logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
