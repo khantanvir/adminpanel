@@ -39,13 +39,13 @@
 	<div class="col-md-3">
 	<div class="brand-wrap">
 		<img class="logo" src="{{ asset('sale/assets/images/logos/squanchy.jpg') }}">
-		<h2 class="logo-text my-text head-logo">Squanchy POS</h2>
+		<h2 class="logo-text my-text head-logo">Nayra</h2>
 	</div> <!-- brand-wrap.// -->
 	</div>
 	<div class="col-md-6">
 		<form action="#" class="search-wrap">
 			<div class="input-group">
-			    <input type="text" class="search-input" placeholder="Search Products">
+			    <input type="text" class="search-box-custom search-input" placeholder="Search Products">
 			    <div class="input-group-append">
 			      <button class="btn search-button" type="submit">
 			        <i class="fa fa-search"></i>

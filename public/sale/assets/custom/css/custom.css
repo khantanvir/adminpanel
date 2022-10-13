@@ -1,16 +1,23 @@
 
+.search-box-custom{
+  padding: 8px;
+  border-radius: 20px;
+  border-color: #e9e5e0;
+  margin-right: 5px;
+}
 input:focus{
     outline: none;
 }
 .search-input{
     width: 80%;
 }
-.search-input:active{
-    border: 1px solid darkorange;
-}
+/* .search-input:active{
+    border: 1px solid rgb(80, 70, 58);
+} */
 .search-button{
     background-color: darkorange;
     color: white;
+    border-radius: 15px !important; 
 }
 .home-part{
   position: absolute !important;
